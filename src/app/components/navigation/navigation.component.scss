@@ -1,0 +1,225 @@
+.navigation {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 192, 203, 0.3);
+  min-width: 200px;
+  transition: all 0.3s ease;
+  
+  // Breast cancer awareness theme
+  &.presentation-mode {
+    background: rgba(255, 240, 243, 0.98);
+    border: 2px solid rgba(255, 107, 157, 0.4);
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+    
+    &:hover {
+      transform: translateY(-50%) scale(1.02);
+      box-shadow: 0 15px 40px rgba(255, 107, 157, 0.3);
+    }
+  }
+}
+
+.nav-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 100%;
+  background: linear-gradient(to bottom, var(--pink-primary), var(--pink-accent));
+  border-radius: 2px;
+  transition: height 0.3s ease;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+// Slide info for presentation mode
+.slide-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--pink-primary), var(--pink-accent));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+  
+  .current-slide {
+    font-size: 1.1rem;
+  }
+  
+  .slide-divider {
+    margin: 0 0.5rem;
+    opacity: 0.8;
+  }
+  
+  .total-slides {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+}
+
+// Mode toggle button
+.mode-toggle {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 192, 203, 0.3);
+  text-align: center;
+}
+
+.toggle-btn {
+  background: linear-gradient(135deg, var(--pink-primary), var(--pink-accent));
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 auto;
+  
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: var(--transition);
+  margin-bottom: 0.25rem;
+
+  &:hover {
+    background: var(--background-alt);
+    transform: translateX(5px);
+  }
+
+  &.active {
+    background: var(--secondary-color);
+    color: white;
+    transform: translateX(8px);
+
+    .nav-number {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.nav-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--background-alt);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 0.75rem;
+  color: var(--text-color);
+}
+
+.nav-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .navigation {
+    right: 1rem;
+    min-width: 180px;
+  }
+  
+  .nav-title {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    position: fixed;
+    bottom: 2rem;
+    right: 1rem;
+    top: auto;
+    transform: none;
+    flex-direction: row;
+    padding: 0.75rem;
+    min-width: auto;
+    max-width: calc(100vw - 2rem);
+  }
+
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .nav-item {
+    margin-bottom: 0;
+    padding: 0.5rem;
+    min-width: auto;
+  }
+
+  .nav-title {
+    display: none;
+  }
+
+  .nav-number {
+    margin-right: 0;
+    width: 32px;
+    height: 32px;
+  }
+}
