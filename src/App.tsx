@@ -1,4 +1,3 @@
-import React from 'react'
 import { Navigation } from './components/Navigation'
 import { Section } from './components/Section'
 import { SlideControls } from './components/SlideControls'
@@ -20,12 +19,13 @@ function App() {
                 <span className="text-4xl text-white">🎗️</span>
               </div>
             </div>
-            <h1 className="mx-auto max-w-4xl text-balance text-5xl font-bold leading-tight" style={{ color: 'var(--breast-cancer-text)' }}>
-              Breast Cancer Detection using Machine Learning and Bio-inspired Optimization
+            <h1 className="mx-auto max-w-4xl text-balance text-4xl font-bold leading-tight" style={{ color: 'var(--breast-cancer-text)' }}>
+              MAMO.IA: Detecção de cancer de mama com aprendizado de maquina e otimização bioinspirada
             </h1>
             <div className="mt-8 text-xl" style={{ color: 'var(--breast-cancer-text)' }}>
-              <p className="font-medium">Leandro Silva</p>
-              <p className="opacity-80">Universidade de Pernambuco</p>
+              <p className="font-medium"><strong>Orientador:</strong> Wellington Pinheiro</p>
+              <p className="font-small"><strong>Dicente:</strong> Leandro Carneiro</p>
+              <img src="src/assets/logo-upe.png" alt="UPE Logo" className="mt-6 h-16 mx-auto" />
               <p className="text-sm opacity-70 mt-4">{new Date().getFullYear()}</p>
             </div>
           </div>
