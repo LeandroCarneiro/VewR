@@ -25,9 +25,14 @@ const SlideContext = createContext<SlideContextValue | undefined>(undefined);
 const defaultSlides: SlideData[] = [
   { id: 'home', title: 'Home' },
   { id: 'introduction', title: 'Introduction' },
+  { id: 'related-work', title: 'Related Work' },
+  { id: 'metaheuristics', title: 'Metaheuristics' },
+  { id: 'tree-methods', title: 'Tree Methods' },
   { id: 'methodology', title: 'Methodology' },
+  { id: 'data-processing', title: 'Data Processing' },
   { id: 'results', title: 'Results' },
-  { id: 'conclusion', title: 'Conclusion' }
+  { id: 'conclusion', title: 'Conclusion' },
+  { id: 'acknowledgments', title: 'Acknowledgments' }
 ];
 
 export const SlideProvider: React.FC<{ children: React.ReactNode; initialSlides?: SlideData[] }> = ({ children, initialSlides }) => {

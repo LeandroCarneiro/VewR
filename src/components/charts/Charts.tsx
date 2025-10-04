@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Chart,
-  ChartConfiguration,
   registerables,
 } from 'chart.js';
+import type { ChartConfiguration } from 'chart.js';
 import { BoxPlotController, ViolinController, BoxAndWiskers, Violin } from '@sgratzl/chartjs-chart-boxplot';
 import { Modal } from '../Modal';
 

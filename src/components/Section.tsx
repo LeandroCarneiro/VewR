@@ -1,4 +1,5 @@
-import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import type { PropsWithChildren } from 'react';
 import { useSlides } from '../context/SlideContext';
 
 type SectionProps = PropsWithChildren<{
@@ -9,12 +10,11 @@ type SectionProps = PropsWithChildren<{
 }>;
 
 export const Section: React.FC<SectionProps> = ({ sectionId, sectionTitle, animationClass = 'fade-in', backgroundTheme, children }) => {
-  const { presentationMode, slides, currentSlideIndex } = useSlides();
+  const { slides, currentSlideIndex } = useSlides();
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
   const isCurrent = slides[currentSlideIndex]?.id === sectionId;
-  const currentSlideNumber = slides.findIndex(slide => slide.id === sectionId) + 1;
 
   useEffect(() => {
     const el = ref.current;
@@ -62,9 +62,6 @@ export const Section: React.FC<SectionProps> = ({ sectionId, sectionTitle, anima
             >
               {sectionTitle}
             </h2>
-            <div className="flex items-center gap-2 text-sm opacity-60">
-              <span>Slide {currentSlideNumber} of {slides.length}</span>
-            </div>
           </div>
         )}
         
