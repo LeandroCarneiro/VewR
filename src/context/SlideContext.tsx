@@ -31,7 +31,8 @@ const defaultSlides: SlideData[] = [
   { id: 'methodology', title: 'Methodology' },
   { id: 'classification-strategy', title: 'Classification Strategy' },
   { id: 'data-processing', title: 'Data Processing' },
-  { id: 'results', title: 'Results' },
+  { id: 'results-models', title: 'Results - Models' },
+  { id: 'results-optimizers', title: 'Results - Optimizers' },
   { id: 'conclusion', title: 'Conclusion' },
   { id: 'acknowledgments', title: 'Acknowledgments' }
 ];

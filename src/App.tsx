@@ -1,7 +1,8 @@
 import { Navigation } from './components/Navigation'
 import { Section } from './components/Section'
 import { SlideControls } from './components/SlideControls'
-import { Charts } from './components/charts/Charts'
+import { ModelPerformanceCharts } from './components/charts/ModelPerformanceCharts'
+import { OptimizerPerformanceCharts } from './components/charts/OptimizerPerformanceCharts'
 
 function App() {
   return (
@@ -35,46 +36,48 @@ function App() {
 
         {/* Introduction - Background and problem statement */}
         <Section sectionId="introduction" sectionTitle="Introduction" backgroundTheme="breast-cancer-bg-2">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid gap-8 md:grid-cols-2 mb-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid gap-6 md:grid-cols-2 mb-6">
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>
-                  Epigenetic Biomarkers
+                  Multi-Dataset Comparative Study
                 </h3>
                 <p className="text-lg leading-relaxed">
-                  The human immune system employs diverse mechanisms to correct alterations in gene expression. 
-                  <strong>CpG methylation</strong>—an essential regulatory DNA modification—dynamically modulates gene expression.
+                  This research presents a comprehensive comparison of <strong>9 different dataset configurations</strong> 
+                  for BRCA classification using epigenetic biomarkers. Our approach evaluates multiple 
+                  <strong>class combinations</strong> to understand the discriminatory power of DNA methylation patterns.
                 </p>
-                <p className="text-lg leading-relaxed">
-                  Dysregulation of this process is strongly associated with diseases such as cancer, where promoter region 
-                  <strong>hyper- or hypo-methylation</strong> can silence tumor suppressor genes or activate oncogenes.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  <strong>Blood-derived samples</strong> enable non-invasive biomarker discovery for early diagnosis.
-                </p>
+                <div className="bg-white rounded-lg p-4 shadow-md">
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Dataset Configurations Tested:</h4>
+                  <div className="text-sm space-y-1">
+                    <div>• <strong>HEALTHY-MT-WT-BRCA:</strong> 3-class (Healthy with/without mutation + Cancer)</div>
+                    <div>• <strong>HEALTHY-WT-BRCA:</strong> 2-class (Healthy without mutation + Cancer)</div>
+                    <div>• <strong>HEALTHY-MT-BRCA:</strong> 2-class (Healthy with mutation + Cancer)</div>
+                    <div>• <strong>HEALTHY-BRCA:</strong> 2-class (All healthy + Cancer)</div>
+                    <div>• <strong>HEALTHY-PRE-BRCA:</strong> 2-class (Healthy + Pre-diagnostic)</div>
+                  </div>
+                </div>
               </div>
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>
-                  Research Challenges
+                  Advanced Classification Scenarios
                 </h3>
-                <ul className="space-y-3 text-lg">
-                  <li className="flex items-start gap-2">
-                    <span style={{ color: 'var(--breast-cancer-accent)' }}>•</span>
-                    <strong>Limited sample sizes</strong> for many diseases, particularly rare cases
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span style={{ color: 'var(--breast-cancer-accent)' }}>•</span>
-                    <strong>High dimensionality</strong> of genomic data (27,000+ CpG sites)
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span style={{ color: 'var(--breast-cancer-accent)' }}>•</span>
-                    Variables generally <strong>exceed sample numbers</strong> by far
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span style={{ color: 'var(--breast-cancer-accent)' }}>•</span>
-                    Need for <strong>interpretable</strong> machine learning models
-                  </li>
-                </ul>
+                <div className="bg-white rounded-lg p-4 shadow-md">
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Additional Configurations:</h4>
+                  <div className="text-sm space-y-1">
+                    <div>• <strong>HEALTHY-PRE-BRCA-BRCA:</strong> 3-class (Healthy + Pre-diagnostic + Cancer)</div>
+                    <div>• <strong>PRE-BRCA-BRCA:</strong> 2-class (Pre-diagnostic + Cancer)</div>
+                    <div>• <strong>PRE-BRCA-BRCA-MT:</strong> 2-class (Pre-diagnostic + Cancer with mutation)</div>
+                    <div>• <strong>PRE-BRCA-BRCA-WT:</strong> 2-class (Pre-diagnostic + Cancer without mutation)</div>
+                  </div>
+                </div>
+                <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-4 border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Key Innovation:</h4>
+                  <p className="text-sm">
+                    <strong>Systematic evaluation</strong> of how different class combinations affect 
+                    classification performance, providing insights into optimal grouping strategies for clinical applications.
+                  </p>
+                </div>
               </div>
             </div>
             
@@ -397,28 +400,69 @@ function App() {
         </Section>
 
         {/* Methodology - Research approach and methods */}
-        <Section sectionId="methodology" sectionTitle="Methodology Overview" backgroundTheme="breast-cancer-bg-3">
-          <div className="max-w-6xl mx-auto">
-            {/* Data Sources */}
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--breast-cancer-accent)' }}>
-                DNA Methylation Data Sources
+        <Section sectionId="methodology" sectionTitle="Multi-Dataset Methodology" backgroundTheme="breast-cancer-bg-3">
+          <div className="max-w-7xl mx-auto">
+            {/* Multi-Dataset Comparison Strategy */}
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
+                Comprehensive Multi-Dataset Comparison Strategy
               </h3>
-              <div className="bg-white rounded-lg p-6 shadow-lg">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold mb-3" style={{ color: 'var(--breast-cancer-accent)' }}>Platform</h4>
-                    <p className="text-base mb-4">Illumina Infinium HumanMethylation27 BeadChip</p>
-                    <p className="text-sm text-gray-600">Interrogates <strong>27,000+ CpG sites</strong> across the human genome</p>
+              <p className="text-lg max-w-5xl mx-auto mb-6">
+                Our methodology systematically evaluates <strong>9 different dataset configurations</strong> to identify 
+                optimal classification strategies for various clinical scenarios.
+              </p>
+            </div>
+            
+            {/* Dataset Configuration Matrix */}
+            <div className="bg-white rounded-lg p-6 shadow-lg mb-6">
+              <h4 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>Dataset Configuration Matrix</h4>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="border rounded-lg p-4">
+                  <h5 className="font-semibold mb-2" style={{ color: '#2ecc71' }}>Binary Classifications</h5>
+                  <div className="text-sm space-y-1">
+                    <div>• HEALTHY-WT-BRCA</div>
+                    <div>• HEALTHY-MT-BRCA</div>
+                    <div>• HEALTHY-BRCA</div>
+                    <div>• HEALTHY-PRE-BRCA</div>
+                    <div>• PRE-BRCA-BRCA</div>
+                    <div>• PRE-BRCA-BRCA-MT</div>
+                    <div>• PRE-BRCA-BRCA-WT</div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold mb-3" style={{ color: 'var(--breast-cancer-accent)' }}>Data Repository</h4>
-                    <p className="text-base mb-2">Gene Expression Omnibus (GEO)</p>
-                    <div className="text-sm text-gray-500">
-                      <p>GSE58119, GSE58045, GSE57285</p>
-                      <p>GSE41037, GSE32396</p>
-                    </div>
+                </div>
+                <div className="border rounded-lg p-4">
+                  <h5 className="font-semibold mb-2" style={{ color: '#e74c3c' }}>Multi-Class Classifications</h5>
+                  <div className="text-sm space-y-1">
+                    <div>• HEALTHY-MT-WT-BRCA</div>
+                    <div>• HEALTHY-PRE-BRCA-BRCA</div>
                   </div>
+                  <div className="mt-4 p-2 bg-red-50 rounded">
+                    <div className="text-xs">These represent the most challenging scenarios with 3 distinct classes</div>
+                  </div>
+                </div>
+                <div className="border rounded-lg p-4">
+                  <h5 className="font-semibold mb-2" style={{ color: '#3498db' }}>Evaluation Framework</h5>
+                  <div className="text-sm space-y-1">
+                    <div>• <strong>2</strong> Metaheuristics (GA, PSO)</div>
+                    <div>• <strong>5</strong> ML Algorithms</div>
+                    <div>• <strong>3</strong> Feature Selection strategies (GA, PSO, ALL)</div>
+                    <div>• <strong>8</strong> Performance metrics</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Data Sources - Compact */}
+            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-4 mb-6 border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+              <div className="grid md:grid-cols-2 gap-4 text-center">
+                <div>
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Platform</h4>
+                  <p className="text-sm">Illumina HumanMethylation27 BeadChip</p>
+                  <p className="text-xs text-gray-600"><strong>27,000+ CpG sites</strong></p>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Data Sources</h4>
+                  <p className="text-sm">Gene Expression Omnibus (GEO)</p>
+                  <p className="text-xs text-gray-600">GSE58119, GSE58045, GSE57285, GSE41037, GSE32396</p>
                 </div>
               </div>
             </div>
@@ -752,41 +796,66 @@ function App() {
           </div>
         </Section>
 
-        {/* Results - Grid of charts with modal functionality */}
-        <Section sectionId="results" sectionTitle="Results" backgroundTheme="breast-cancer-bg-4">
+        {/* Results Part 1 - ML Models Performance by Dataset */}
+        <Section sectionId="results-models" sectionTitle="Results - ML Models Performance" backgroundTheme="breast-cancer-bg-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8">
+            <div className="text-center mb-6">
               <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Performance Analysis
+                ML Models Performance by Dataset
               </h3>
-              <p className="text-lg opacity-80">
-                Click on any chart to view an enlarged version with detailed analysis
+              <p className="text-lg opacity-80 max-w-4xl mx-auto mb-6">
+                Comprehensive comparison of 5 machine learning algorithms across 9 different dataset configurations.
+                Each chart shows model performance with GA, PSO, and no optimization.
               </p>
             </div>
-            <Charts />
+            <ModelPerformanceCharts />
+          </div>
+        </Section>
+
+        {/* Results Part 2 - Optimizers Performance Analysis */}
+        <Section sectionId="results-optimizers" sectionTitle="Results - Optimizers Performance" backgroundTheme="breast-cancer-bg-5">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
+                Optimization Strategies Comparison
+              </h3>
+              <p className="text-lg opacity-80 max-w-4xl mx-auto mb-6">
+                Performance comparison between Genetic Algorithm (GA), Particle Swarm Optimization (PSO), and no optimization (ALL features).
+                Best performing model for each strategy is highlighted.
+              </p>
+            </div>
+            <OptimizerPerformanceCharts />
           </div>
         </Section>
 
         {/* Conclusion - Findings and future work */}
         <Section sectionId="conclusion" sectionTitle="Conclusion" backgroundTheme="breast-cancer-bg-5">
           <div className="max-w-7xl mx-auto h-full flex flex-col justify-center">
-            {/* Main conclusions - compact */}
+            {/* Main conclusions - Key Findings */}
             <div className="bg-white rounded-lg p-6 shadow-lg mb-6">
               <h3 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Mamo.IA Framework Achievements
+                Multi-Dataset Study: Key Findings
               </h3>
-              <div className="grid grid-cols-3 gap-4 text-center">
+              <div className="grid grid-cols-4 gap-4 text-center">
                 <div className="p-3">
-                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>X%</div>
-                  <div className="text-xs">HEALTHY vs. BRCA</div>
+                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>100%</div>
+                  <div className="text-xs">PRE-BRCA vs BRCA Classification</div>
+                  <div className="text-xs text-gray-500">Perfect separation achieved</div>
                 </div>
                 <div className="p-3">
-                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>X%</div>
-                  <div className="text-xs">HEALTHY vs. PRE-BRCA</div>
+                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>94%</div>
+                  <div className="text-xs">HEALTHY vs BRCA (Best)</div>
+                  <div className="text-xs text-gray-500">With LightGBM + GA/PSO</div>
                 </div>
                 <div className="p-3">
-                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>Y%</div>
-                  <div className="text-xs">Dimensionality Reduction</div>
+                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>80%</div>
+                  <div className="text-xs">3-Class Challenge</div>
+                  <div className="text-xs text-gray-500">HEALTHY-MT-WT-BRCA</div>
+                </div>
+                <div className="p-3">
+                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>9</div>
+                  <div className="text-xs">Dataset Configurations</div>
+                  <div className="text-xs text-gray-500">Comprehensive evaluation</div>
                 </div>
               </div>
             </div>
@@ -800,23 +869,27 @@ function App() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>Non-invasive</strong> blood biomarkers
+                    <strong>Multi-dataset</strong> comparative framework
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>Three-class</strong> classification
+                    <strong>9 dataset configurations</strong> systematically evaluated
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>Hybrid GA+PSO</strong> optimization
+                    <strong>GA vs PSO</strong> metaheuristic comparison
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>Epigenetic signatures</strong> (27K+ CpG sites)
+                    <strong>Mutation-based</strong> subgroup analysis
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>Interpretable</strong> ML framework
+                    <strong>Pre-diagnostic</strong> classification insights
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
+                    <strong>Clinical strategy</strong> optimization guidance
                   </li>
                 </ul>
               </div>
