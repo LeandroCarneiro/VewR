@@ -22,12 +22,12 @@ function App() {
               </div>
             </div>
             <h1 className="mx-auto max-w-4xl text-balance text-4xl font-bold leading-tight" style={{ color: 'var(--breast-cancer-text)' }}>
-              MAMO.IA: Detecção de cancer de mama com aprendizado de maquina e otimização bioinspirada
+              MAMO.IA: Breast Cancer Detection using Machine Learning and Bio-inspired Optimization
             </h1>
             <div className="mt-8 text-xl" style={{ color: 'var(--breast-cancer-text)' }}>
               <p className="font-medium"><strong>Orientador:</strong> Wellington Pinheiro</p>
               <p className="font-small"><strong>Dicente:</strong> Leandro Carneiro</p>
-              <img src="src/assets/logo-upe.png" alt="UPE Logo" className="mt-6 h-16 mx-auto" />
+              <img src="src/assets/logo-upe.png" alt="UPE Logo" className="mt-8 h-20 mx-auto" />
               <p className="text-sm opacity-70 mt-4">{new Date().getFullYear()}</p>
             </div>
           </div>
@@ -80,20 +80,39 @@ function App() {
             
             <div className="text-center bg-white rounded-lg p-6 shadow-lg mt-8">
               <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Three-Class Classification
+                Dataset Composition (Total: 711 Samples)
               </h3>
-              <div className="grid md:grid-cols-3 gap-4 text-center">
+              <div className="grid md:grid-cols-3 gap-4 text-center mb-6">
                 <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(46, 204, 113, 0.1)', border: '2px solid #2ecc71' }}>
                   <strong>HEALTHY</strong><br/>
-                  <span className="text-sm">591 samples<br/>No cancer history</span>
+                  <span className="text-sm"><strong>512 samples</strong><br/>No cancer history</span>
+                  <div className="text-xs mt-2 space-y-1">
+                    <div>• With mutation: 22</div>
+                    <div>• Without mutation: 57</div>
+                    <div>• Not specified: 433</div>
+                  </div>
                 </div>
                 <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(241, 196, 15, 0.1)', border: '2px solid #f1c40f' }}>
                   <strong>PRE-BRCA</strong><br/>
-                  <span className="text-sm">134 samples<br/>Developed cancer within 5 years</span>
+                  <span className="text-sm"><strong>134 samples</strong><br/>Developed cancer within 5 years</span>
                 </div>
                 <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(231, 76, 60, 0.1)', border: '2px solid #e74c3c' }}>
                   <strong>BRCA</strong><br/>
-                  <span className="text-sm">65 samples<br/>Confirmed breast cancer patients</span>
+                  <span className="text-sm"><strong>65 samples</strong><br/>Confirmed breast cancer patients</span>
+                  <div className="text-xs mt-2 space-y-1">
+                    <div>• With mutation: 50</div>
+                    <div>• Without mutation: 15</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200">
+                <h4 className="font-bold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Classification Combinations Tested:</h4>
+                <div className="grid md:grid-cols-2 gap-2 text-sm">
+                  <div>• <strong>HEALTHY vs. BRCA</strong> (3-class with PRE-BRCA)</div>
+                  <div>• <strong>HEALTHY (with mutation) vs. HEALTHY (without mutation)</strong></div>
+                  <div>• <strong>BRCA (with mutation) vs. BRCA (without mutation)</strong></div>
+                  <div>• <strong>HEALTHY vs. PRE-BRCA</strong> (early detection focus)</div>
                 </div>
               </div>
             </div>
@@ -183,7 +202,7 @@ function App() {
               </h3>
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <p className="text-lg mb-4">
-                  <strong>27,000+ CpG sites</strong> vs. <strong>790 samples</strong> = High-dimensional challenge
+                  <strong>27,000+ CpG sites</strong> vs. <strong>711 samples</strong> = High-dimensional challenge
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 text-left">
                   <div>
@@ -447,9 +466,9 @@ function App() {
               </h3>
               <div className="flex justify-center items-center space-x-4 overflow-x-auto">
                 <div className="bg-white rounded-lg p-4 shadow-lg text-center min-w-32">
-                  <div className="text-2xl mb-2">📊</div>
+                  <div className="text-2xl mb-2">📁</div>
                   <div className="text-sm font-semibold">Data Collection</div>
-                  <div className="text-xs">790 samples</div>
+                  <div className="text-xs">711 samples</div>
                 </div>
                 <div className="text-xl" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
                 
@@ -478,6 +497,104 @@ function App() {
                   <div className="text-2xl mb-2">🎯</div>
                   <div className="text-sm font-semibold">Classification</div>
                   <div className="text-xs">5 ML models</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        {/* Classification Strategy - Binary and multi-class combinations */}
+        <Section sectionId="classification-strategy" sectionTitle="Classification Strategy" backgroundTheme="breast-cancer-bg-2">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
+                Multiple Classification Scenarios Tested
+              </h3>
+              <p className="text-lg max-w-4xl mx-auto">
+                Our approach tests the model's ability to distinguish between different class combinations,
+                evaluating both <strong>mutation-based</strong> and <strong>disease-state</strong> classifications.
+              </p>
+            </div>
+            
+            <div className="grid gap-6 lg:grid-cols-2">
+              {/* Primary Classifications */}
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <h4 className="text-xl font-bold mb-4 text-center" style={{ color: 'var(--breast-cancer-accent)' }}>
+                  🎯 Primary Disease Classification
+                </h4>
+                
+                <div className="space-y-4">
+                  <div className="p-4 rounded-lg border" style={{ borderColor: '#2ecc71', backgroundColor: 'rgba(46, 204, 113, 0.05)' }}>
+                    <h5 className="font-semibold mb-2" style={{ color: '#2ecc71' }}>Three-Class Challenge</h5>
+                    <p className="text-sm mb-2"><strong>HEALTHY vs. PRE-BRCA vs. BRCA</strong></p>
+                    <div className="text-xs space-y-1">
+                      <div>• 512 healthy controls</div>
+                      <div>• 134 pre-diagnostic cases (developed cancer within 5 years)</div>
+                      <div>• 65 confirmed breast cancer patients</div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 rounded-lg border" style={{ borderColor: '#3498db', backgroundColor: 'rgba(52, 152, 219, 0.05)' }}>
+                    <h5 className="font-semibold mb-2" style={{ color: '#3498db' }}>Early Detection Focus</h5>
+                    <p className="text-sm mb-2"><strong>HEALTHY vs. PRE-BRCA</strong></p>
+                    <div className="text-xs space-y-1">
+                      <div>• Identifies pre-diagnostic methylation signatures</div>
+                      <div>• Critical for early intervention strategies</div>
+                      <div>• Distinguishes transient from persistent changes</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Mutation-Based Classifications */}
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <h4 className="text-xl font-bold mb-4 text-center" style={{ color: 'var(--breast-cancer-accent)' }}>
+                  🧬 Mutation-Based Classification
+                </h4>
+                
+                <div className="space-y-4">
+                  <div className="p-4 rounded-lg border" style={{ borderColor: '#e74c3c', backgroundColor: 'rgba(231, 76, 60, 0.05)' }}>
+                    <h5 className="font-semibold mb-2" style={{ color: '#e74c3c' }}>BRCA Mutation Subtypes</h5>
+                    <p className="text-sm mb-2"><strong>BRCA (with mutation) vs. BRCA (without mutation)</strong></p>
+                    <div className="text-xs space-y-1">
+                      <div>• 50 BRCA+ cases with confirmed mutations</div>
+                      <div>• 15 BRCA+ cases without known mutations</div>
+                      <div>• Explores epigenetic vs. genetic pathways</div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 rounded-lg border" style={{ borderColor: '#f39c12', backgroundColor: 'rgba(243, 156, 18, 0.05)' }}>
+                    <h5 className="font-semibold mb-2" style={{ color: '#f39c12' }}>Healthy Mutation Status</h5>
+                    <p className="text-sm mb-2"><strong>HEALTHY (with mutation) vs. HEALTHY (without mutation)</strong></p>
+                    <div className="text-xs space-y-1">
+                      <div>• 22 healthy carriers of mutations</div>
+                      <div>• 57 healthy without mutations</div>
+                      <div>• Identifies mutation-related methylation patterns</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-6 border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+              <h4 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
+                Comprehensive Classification Evaluation
+              </h4>
+              <div className="grid md:grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>4+</div>
+                  <div className="text-sm font-medium">Classification Scenarios</div>
+                  <div className="text-xs text-gray-600">Binary & multi-class combinations</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>2×</div>
+                  <div className="text-sm font-medium">Metaheuristic Algorithms</div>
+                  <div className="text-xs text-gray-600">GA + PSO optimization</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>5×</div>
+                  <div className="text-sm font-medium">ML Algorithms</div>
+                  <div className="text-xs text-gray-600">Tree-based ensemble methods</div>
                 </div>
               </div>
             </div>
@@ -773,7 +890,7 @@ function App() {
         </Section>
 
         {/* Acknowledgments slide */}
-        <Section sectionId="acknowledgments" sectionTitle="Acknowledgments" backgroundTheme="breast-cancer-bg-6">
+        <Section sectionId="acknowledgments" sectionTitle="" backgroundTheme="breast-cancer-bg-6">
           <div className="max-w-4xl mx-auto h-full flex flex-col justify-center text-center">
             <div className="mb-4">
               <div className="w-16 h-16 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
@@ -811,7 +928,8 @@ function App() {
             </div>
             
             <div className="mt-4 text-xs opacity-60">
-              <p>Breast Cancer Detection using Machine Learning and Bio-inspired Optimization</p>
+              <p><strong>MAMO.IA:</strong> Breast Cancer Detection using Machine Learning and Bio-inspired Optimization</p>
+              <img src="src/assets/logo-upe.png" alt="UPE Logo" className="mt-8 h-20 mx-auto" />
               <p className="mt-1">{new Date().getFullYear()}</p>
             </div>
           </div>

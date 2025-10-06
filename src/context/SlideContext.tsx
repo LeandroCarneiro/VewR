@@ -29,6 +29,7 @@ const defaultSlides: SlideData[] = [
   { id: 'metaheuristics', title: 'Metaheuristics' },
   { id: 'tree-methods', title: 'Tree Methods' },
   { id: 'methodology', title: 'Methodology' },
+  { id: 'classification-strategy', title: 'Classification Strategy' },
   { id: 'data-processing', title: 'Data Processing' },
   { id: 'results', title: 'Results' },
   { id: 'conclusion', title: 'Conclusion' },
