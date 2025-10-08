@@ -43,34 +43,10 @@ function App() {
                   Multi-Dataset Comparative Study
                 </h3>
                 <p className="text-lg leading-relaxed">
-                  This research presents a comprehensive comparison of <strong>9 different dataset configurations</strong> 
-                  for BRCA classification using epigenetic biomarkers. Our approach evaluates multiple 
-                  <strong>class combinations</strong> to understand the discriminatory power of DNA methylation patterns.
+                Our approach evaluates multiple <strong>class combinations</strong> to understand the discriminatory power of DNA methylation patterns. 
+                This research presents a methodology usign machine learning to dignostic breast in early stages. This study comperes
+                <strong> 9 different dataset configurations</strong> for BRCA classification. 
                 </p>
-                <div className="bg-white rounded-lg p-4 shadow-md">
-                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Dataset Configurations Tested:</h4>
-                  <div className="text-sm space-y-1">
-                    <div>• <strong>HEALTHY-MT-WT-BRCA:</strong> 3-class (Healthy with/without mutation + Cancer)</div>
-                    <div>• <strong>HEALTHY-WT-BRCA:</strong> 2-class (Healthy without mutation + Cancer)</div>
-                    <div>• <strong>HEALTHY-MT-BRCA:</strong> 2-class (Healthy with mutation + Cancer)</div>
-                    <div>• <strong>HEALTHY-BRCA:</strong> 2-class (All healthy + Cancer)</div>
-                    <div>• <strong>HEALTHY-PRE-BRCA:</strong> 2-class (Healthy + Pre-diagnostic)</div>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>
-                  Advanced Classification Scenarios
-                </h3>
-                <div className="bg-white rounded-lg p-4 shadow-md">
-                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Additional Configurations:</h4>
-                  <div className="text-sm space-y-1">
-                    <div>• <strong>HEALTHY-PRE-BRCA-BRCA:</strong> 3-class (Healthy + Pre-diagnostic + Cancer)</div>
-                    <div>• <strong>PRE-BRCA-BRCA:</strong> 2-class (Pre-diagnostic + Cancer)</div>
-                    <div>• <strong>PRE-BRCA-BRCA-MT:</strong> 2-class (Pre-diagnostic + Cancer with mutation)</div>
-                    <div>• <strong>PRE-BRCA-BRCA-WT:</strong> 2-class (Pre-diagnostic + Cancer without mutation)</div>
-                  </div>
-                </div>
                 <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-4 border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
                   <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Key Innovation:</h4>
                   <p className="text-sm">
@@ -78,6 +54,26 @@ function App() {
                     classification performance, providing insights into optimal grouping strategies for clinical applications.
                   </p>
                 </div>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>
+                  Classification Scenarios
+                </h3>
+                <div className="bg-white rounded-lg p-4 shadow-md">
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Additional Configurations:</h4>
+                  <div className="text-sm space-y-1">
+                  <div>• <strong>HEALTHY-MT-WT-BRCA:</strong> 3-class (Healthy with/without mutation + Cancer)</div>
+                    <div>• <strong>HEALTHY-WT-BRCA:</strong> 2-class (Healthy without mutation + Cancer)</div>
+                    <div>• <strong>HEALTHY-MT-BRCA:</strong> 2-class (Healthy with mutation + Cancer)</div>
+                    <div>• <strong>HEALTHY-BRCA:</strong> 2-class (All healthy + Cancer)</div>
+                    <div>• <strong>HEALTHY-PRE-BRCA:</strong> 2-class (Healthy + Pre-diagnostic)</div>
+                    <div>• <strong>HEALTHY-PRE-BRCA-BRCA:</strong> 3-class (Healthy + Pre-diagnostic + Cancer)</div>
+                    <div>• <strong>PRE-BRCA-BRCA:</strong> 2-class (Pre-diagnostic + Cancer)</div>
+                    <div>• <strong>PRE-BRCA-BRCA-MT:</strong> 2-class (Pre-diagnostic + Cancer with mutation)</div>
+                    <div>• <strong>PRE-BRCA-BRCA-WT:</strong> 2-class (Pre-diagnostic + Cancer without mutation)</div>
+                  </div>
+                </div>
+                
               </div>
             </div>
             
@@ -88,11 +84,11 @@ function App() {
               <div className="grid md:grid-cols-3 gap-4 text-center mb-6">
                 <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(46, 204, 113, 0.1)', border: '2px solid #2ecc71' }}>
                   <strong>HEALTHY</strong><br/>
-                  <span className="text-sm"><strong>512 samples</strong><br/>No cancer history</span>
+                  <span className="text-sm"><strong>591 samples</strong></span>
                   <div className="text-xs mt-2 space-y-1">
                     <div>• With mutation: 22</div>
                     <div>• Without mutation: 57</div>
-                    <div>• Not specified: 433</div>
+                    <div>• Not specified: 512</div>
                   </div>
                 </div>
                 <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(241, 196, 15, 0.1)', border: '2px solid #f1c40f' }}>
@@ -106,16 +102,6 @@ function App() {
                     <div>• With mutation: 50</div>
                     <div>• Without mutation: 15</div>
                   </div>
-                </div>
-              </div>
-              
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200">
-                <h4 className="font-bold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Classification Combinations Tested:</h4>
-                <div className="grid md:grid-cols-2 gap-2 text-sm">
-                  <div>• <strong>HEALTHY vs. BRCA</strong> (3-class with PRE-BRCA)</div>
-                  <div>• <strong>HEALTHY (with mutation) vs. HEALTHY (without mutation)</strong></div>
-                  <div>• <strong>BRCA (with mutation) vs. BRCA (without mutation)</strong></div>
-                  <div>• <strong>HEALTHY vs. PRE-BRCA</strong> (early detection focus)</div>
                 </div>
               </div>
             </div>
@@ -798,33 +784,37 @@ function App() {
 
         {/* Results Part 1 - ML Models Performance by Dataset */}
         <Section sectionId="results-models" sectionTitle="Results - ML Models Performance" backgroundTheme="breast-cancer-bg-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
+          <div className="max-w-7xl mx-auto h-full flex flex-col">
+            <div className="text-center mb-4 flex-shrink-0">
+              <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--breast-cancer-accent)' }}>
                 ML Models Performance by Dataset
               </h3>
-              <p className="text-lg opacity-80 max-w-4xl mx-auto mb-6">
+              <p className="text-base opacity-80 max-w-4xl mx-auto">
                 Comprehensive comparison of 5 machine learning algorithms across 9 different dataset configurations.
                 Each chart shows model performance with GA, PSO, and no optimization.
               </p>
             </div>
-            <ModelPerformanceCharts />
+            <div className="flex-1 min-h-0">
+              <ModelPerformanceCharts />
+            </div>
           </div>
         </Section>
 
         {/* Results Part 2 - Optimizers Performance Analysis */}
         <Section sectionId="results-optimizers" sectionTitle="Results - Optimizers Performance" backgroundTheme="breast-cancer-bg-5">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
+          <div className="max-w-7xl mx-auto h-full flex flex-col">
+            <div className="text-center mb-4 flex-shrink-0">
+              <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--breast-cancer-accent)' }}>
                 Optimization Strategies Comparison
               </h3>
-              <p className="text-lg opacity-80 max-w-4xl mx-auto mb-6">
+              <p className="text-base opacity-80 max-w-4xl mx-auto">
                 Performance comparison between Genetic Algorithm (GA), Particle Swarm Optimization (PSO), and no optimization (ALL features).
                 Best performing model for each strategy is highlighted.
               </p>
             </div>
-            <OptimizerPerformanceCharts />
+            <div className="flex-1 min-h-0">
+              <OptimizerPerformanceCharts />
+            </div>
           </div>
         </Section>
 

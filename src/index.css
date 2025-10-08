@@ -160,6 +160,47 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+/* Section content overflow handling */
+.section-content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.section-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.section-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.section-content::-webkit-scrollbar-thumb {
+  background: var(--breast-cancer-accent);
+  border-radius: 3px;
+  opacity: 0.3;
+}
+
+.section-content::-webkit-scrollbar-thumb:hover {
+  opacity: 0.6;
+}
+
+/* Results sections height constraints */
+.results-container {
+  height: 100%;
+  max-height: calc(100vh - 120px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.results-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 /* Navigation improvements */
 .navigation {
   background-color: rgba(255, 255, 255, 0.95);

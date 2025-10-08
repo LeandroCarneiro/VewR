@@ -307,17 +307,17 @@ export const ModelPerformanceCharts: React.FC = () => {
   }, [modalOpen, selectedDataset, data, selectedMetric]);
   
   return (
-    <>
+    <div className="h-full flex flex-col">
       {/* Metric Selector */}
-      <div className="bg-white rounded-lg p-4 shadow-lg mb-6">
+      <div className="bg-white rounded-lg p-3 shadow-lg mb-4 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>Metric:</h3>
+          <h3 className="text-base font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>Metric:</h3>
           <div className="flex flex-wrap gap-2">
             {availableMetrics.map((metric) => (
               <button
                 key={metric.key}
                 onClick={() => setSelectedMetric(metric.key)}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
+                className={`px-2 py-1 rounded-full text-xs font-medium transition-all ${
                   selectedMetric === metric.key
                     ? 'text-white shadow-lg'
                     : 'text-gray-700 bg-gray-100 hover:bg-gray-200'
@@ -334,29 +334,31 @@ export const ModelPerformanceCharts: React.FC = () => {
       </div>
       
       {/* 3x3 Grid of Dataset Charts */}
-      <div className="grid grid-cols-3 gap-6 mb-8">
-        {datasetConfigs.map((config, index) => (
-          <div 
-            key={config.id}
-            className="bg-white rounded-lg p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
-            onClick={() => handleChartClick(config, index)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && handleChartClick(config, index)}
-          >
-            <div className="text-center mb-3">
-              <h4 className="font-bold text-sm mb-1" style={{ color: config.color }}>
-                Dataset {index + 1}
-              </h4>
+      <div className="flex-1 min-h-0 overflow-y-auto">
+        <div className="grid grid-cols-3 gap-4 h-fit">
+          {datasetConfigs.map((config, index) => (
+            <div 
+              key={config.id}
+              className="bg-white rounded-lg p-3 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+              onClick={() => handleChartClick(config, index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && handleChartClick(config, index)}
+            >
+              <div className="text-center mb-2">
+                <h4 className="font-bold text-xs mb-1" style={{ color: config.color }}>
+                  Dataset {index + 1}
+                </h4>
+              </div>
+              <div className="h-48">
+                <canvas 
+                  ref={(el) => canvasRefs.current[index] = el}
+                  className="w-full h-full"
+                />
+              </div>
             </div>
-            <div className="h-64">
-              <canvas 
-                ref={(el) => canvasRefs.current[index] = el}
-                className="w-full h-full"
-              />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       
       {/* Modal for enlarged chart view */}
@@ -374,6 +376,6 @@ export const ModelPerformanceCharts: React.FC = () => {
           </div>
         )}
       </Modal>
-    </>
+    </div>
   );
 };

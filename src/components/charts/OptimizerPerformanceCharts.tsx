@@ -372,17 +372,17 @@ export const OptimizerPerformanceCharts: React.FC = () => {
   const bestALL = data.length > 0 ? findBestModel(data, 'ALL', selectedMetric) : { model: 'N/A', value: 0, dataset: 'N/A' };
   
   return (
-    <>
+    <div className="h-full flex flex-col">
       {/* Metric Selector */}
-      <div className="bg-white rounded-lg p-4 shadow-lg mb-6">
+      <div className="bg-white rounded-lg p-3 shadow-lg mb-3 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>Metric:</h3>
+          <h3 className="text-base font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>Metric:</h3>
           <div className="flex flex-wrap gap-2">
             {availableMetrics.map((metric) => (
               <button
                 key={metric.key}
                 onClick={() => setSelectedMetric(metric.key)}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
+                className={`px-2 py-1 rounded-full text-xs font-medium transition-all ${
                   selectedMetric === metric.key
                     ? 'text-white shadow-lg'
                     : 'text-gray-700 bg-gray-100 hover:bg-gray-200'
@@ -398,81 +398,83 @@ export const OptimizerPerformanceCharts: React.FC = () => {
         </div>
       </div>
       
-      {/* Best Models Summary */}
-      <div className="grid grid-cols-3 gap-6 mb-8">
-        <div className="bg-white rounded-lg p-4 shadow-lg border-l-4" style={{ borderColor: '#3498db' }}>
-          <h4 className="font-bold text-lg mb-2" style={{ color: '#3498db' }}>GA Best Performance</h4>
-          <p className="text-sm"><strong>Model:</strong> {bestGA.model}</p>
-          <p className="text-sm"><strong>{currentMetric.label}:</strong> {selectedMetric === 'kappa' ? bestGA.value.toFixed(3) : `${(bestGA.value * 100).toFixed(1)}%`}</p>
-          <p className="text-sm"><strong>Dataset:</strong> {bestGA.dataset.replace(/-/g, ' vs ')}</p>
-        </div>
-        
-        <div className="bg-white rounded-lg p-4 shadow-lg border-l-4" style={{ borderColor: '#e74c3c' }}>
-          <h4 className="font-bold text-lg mb-2" style={{ color: '#e74c3c' }}>PSO Best Performance</h4>
-          <p className="text-sm"><strong>Model:</strong> {bestPSO.model}</p>
-          <p className="text-sm"><strong>{currentMetric.label}:</strong> {selectedMetric === 'kappa' ? bestPSO.value.toFixed(3) : `${(bestPSO.value * 100).toFixed(1)}%`}</p>
-          <p className="text-sm"><strong>Dataset:</strong> {bestPSO.dataset.replace(/-/g, ' vs ')}</p>
-        </div>
-        
-        <div className="bg-white rounded-lg p-4 shadow-lg border-l-4" style={{ borderColor: '#2ecc71' }}>
-          <h4 className="font-bold text-lg mb-2" style={{ color: '#2ecc71' }}>No Optimization Best</h4>
-          <p className="text-sm"><strong>Model:</strong> {bestALL.model}</p>
-          <p className="text-sm"><strong>{currentMetric.label}:</strong> {selectedMetric === 'kappa' ? bestALL.value.toFixed(3) : `${(bestALL.value * 100).toFixed(1)}%`}</p>
-          <p className="text-sm"><strong>Dataset:</strong> {bestALL.dataset.replace(/-/g, ' vs ')}</p>
-        </div>
-      </div>
-      
-      {/* Performance Charts Grid */}
-      <div className="grid grid-cols-2 gap-6 mb-8">
-        {/* GA Performance */}
-        <div 
-          className="bg-white rounded-lg p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
-          onClick={() => handleChartClick('GA Optimization Performance', 'ga')}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && handleChartClick('GA Optimization Performance', 'ga')}
-        >
-          <div className="h-64">
-            <canvas ref={gaChartRef} className="w-full h-full" />
+      <div className="flex-1 min-h-0 overflow-y-auto">
+        {/* Best Models Summary */}
+        <div className="grid grid-cols-3 gap-3 mb-4">
+          <div className="bg-white rounded-lg p-3 shadow-lg border-l-4" style={{ borderColor: '#3498db' }}>
+            <h4 className="font-bold text-sm mb-1" style={{ color: '#3498db' }}>GA Best Performance</h4>
+            <p className="text-xs"><strong>Model:</strong> {bestGA.model}</p>
+            <p className="text-xs"><strong>{currentMetric.label}:</strong> {selectedMetric === 'kappa' ? bestGA.value.toFixed(3) : `${(bestGA.value * 100).toFixed(1)}%`}</p>
+            <p className="text-xs"><strong>Dataset:</strong> {bestGA.dataset.replace(/-/g, ' vs ')}</p>
+          </div>
+          
+          <div className="bg-white rounded-lg p-3 shadow-lg border-l-4" style={{ borderColor: '#e74c3c' }}>
+            <h4 className="font-bold text-sm mb-1" style={{ color: '#e74c3c' }}>PSO Best Performance</h4>
+            <p className="text-xs"><strong>Model:</strong> {bestPSO.model}</p>
+            <p className="text-xs"><strong>{currentMetric.label}:</strong> {selectedMetric === 'kappa' ? bestPSO.value.toFixed(3) : `${(bestPSO.value * 100).toFixed(1)}%`}</p>
+            <p className="text-xs"><strong>Dataset:</strong> {bestPSO.dataset.replace(/-/g, ' vs ')}</p>
+          </div>
+          
+          <div className="bg-white rounded-lg p-3 shadow-lg border-l-4" style={{ borderColor: '#2ecc71' }}>
+            <h4 className="font-bold text-sm mb-1" style={{ color: '#2ecc71' }}>No Optimization Best</h4>
+            <p className="text-xs"><strong>Model:</strong> {bestALL.model}</p>
+            <p className="text-xs"><strong>{currentMetric.label}:</strong> {selectedMetric === 'kappa' ? bestALL.value.toFixed(3) : `${(bestALL.value * 100).toFixed(1)}%`}</p>
+            <p className="text-xs"><strong>Dataset:</strong> {bestALL.dataset.replace(/-/g, ' vs ')}</p>
           </div>
         </div>
         
-        {/* PSO Performance */}
-        <div 
-          className="bg-white rounded-lg p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
-          onClick={() => handleChartClick('PSO Optimization Performance', 'pso')}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && handleChartClick('PSO Optimization Performance', 'pso')}
-        >
-          <div className="h-64">
-            <canvas ref={psoChartRef} className="w-full h-full" />
+        {/* Performance Charts Grid */}
+        <div className="grid grid-cols-2 gap-3">
+          {/* GA Performance */}
+          <div 
+            className="bg-white rounded-lg p-3 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+            onClick={() => handleChartClick('GA Optimization Performance', 'ga')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && handleChartClick('GA Optimization Performance', 'ga')}
+          >
+            <div className="h-52">
+              <canvas ref={gaChartRef} className="w-full h-full" />
+            </div>
           </div>
-        </div>
-        
-        {/* ALL Performance */}
-        <div 
-          className="bg-white rounded-lg p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
-          onClick={() => handleChartClick('No Optimization Performance', 'all')}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && handleChartClick('No Optimization Performance', 'all')}
-        >
-          <div className="h-64">
-            <canvas ref={allChartRef} className="w-full h-full" />
+          
+          {/* PSO Performance */}
+          <div 
+            className="bg-white rounded-lg p-3 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+            onClick={() => handleChartClick('PSO Optimization Performance', 'pso')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && handleChartClick('PSO Optimization Performance', 'pso')}
+          >
+            <div className="h-52">
+              <canvas ref={psoChartRef} className="w-full h-full" />
+            </div>
           </div>
-        </div>
-        
-        {/* Comparison Chart */}
-        <div 
-          className="bg-white rounded-lg p-4 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
-          onClick={() => handleChartClick('Optimization Strategies Comparison', 'comparison')}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && handleChartClick('Optimization Strategies Comparison', 'comparison')}
-        >
-          <div className="h-64">
-            <canvas ref={comparisonChartRef} className="w-full h-full" />
+          
+          {/* ALL Performance */}
+          <div 
+            className="bg-white rounded-lg p-3 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+            onClick={() => handleChartClick('No Optimization Performance', 'all')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && handleChartClick('No Optimization Performance', 'all')}
+          >
+            <div className="h-52">
+              <canvas ref={allChartRef} className="w-full h-full" />
+            </div>
+          </div>
+          
+          {/* Comparison Chart */}
+          <div 
+            className="bg-white rounded-lg p-3 shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+            onClick={() => handleChartClick('Optimization Strategies Comparison', 'comparison')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && handleChartClick('Optimization Strategies Comparison', 'comparison')}
+          >
+            <div className="h-52">
+              <canvas ref={comparisonChartRef} className="w-full h-full" />
+            </div>
           </div>
         </div>
       </div>
@@ -516,6 +518,6 @@ export const OptimizerPerformanceCharts: React.FC = () => {
           </div>
         )}
       </Modal>
-    </>
+    </div>
   );
 };

@@ -53,9 +53,9 @@ export const Section: React.FC<SectionProps> = ({ sectionId, sectionTitle, anima
         </div>
       )}
       
-      <div className="container mx-auto px-8 h-full flex flex-col justify-center">
+      <div className="container mx-auto px-8 h-full flex flex-col">
         {sectionTitle && (
-          <div className="mb-8">
+          <div className="flex-shrink-0 py-4">
             <h2 
               className="text-4xl font-bold mb-2" 
               style={{ color: isCurrent ? 'var(--breast-cancer-accent)' : 'var(--breast-cancer-text)' }}
@@ -65,8 +65,10 @@ export const Section: React.FC<SectionProps> = ({ sectionId, sectionTitle, anima
           </div>
         )}
         
-        <div className="flex-1 flex flex-col justify-center">
-          {children}
+        <div className="flex-1 overflow-y-auto overflow-x-hidden">
+          <div className="min-h-0 flex flex-col justify-center py-4">
+            {children}
+          </div>
         </div>
       </div>
     </section>
