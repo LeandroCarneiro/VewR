@@ -571,9 +571,12 @@ function App() {
                     <h5 className="font-semibold mb-2" style={{ color: '#2ecc71' }}>Three-Class Challenge</h5>
                     <p className="text-sm mb-2"><strong>HEALTHY vs. PRE-BRCA vs. BRCA</strong></p>
                     <div className="text-xs space-y-1">
-                      <div>• 512 healthy controls</div>
-                      <div>• 134 pre-diagnostic cases (developed cancer within 5 years)</div>
-                      <div>• 65 confirmed breast cancer patients</div>
+                      <ul className="text-xs space-y-1 text-gray-700">
+                        <li>• 512 healthy controls</li>
+                        <li>• 134 pre-diagnostic cases (developed cancer within 5 years)</li>
+                        <li>• 65 confirmed breast cancer patients</li>
+                        <li>• Low false negatives for BRCA and PRE-BRCA to support early intervention</li>
+                      </ul>
                     </div>
                   </div>
 
@@ -581,9 +584,14 @@ function App() {
                     <h5 className="font-semibold mb-2" style={{ color: '#3498db' }}>Early Detection Focus</h5>
                     <p className="text-sm mb-2"><strong>HEALTHY vs. PRE-BRCA</strong></p>
                     <div className="text-xs space-y-1">
-                      <div>• Identifies pre-diagnostic methylation signatures</div>
-                      <div>• Critical for early intervention strategies</div>
-                      <div>• Distinguishes transient from persistent changes</div>
+                      <ul className="text-xs space-y-1 text-gray-700">
+                        <li>• Identifies pre-diagnostic methylation signatures</li>
+                        <li>• Critical for early intervention strategies</li>
+                        <li>• Distinguishes transient from persistent changes</li>
+                        <li>• Sensitivity to subtle pre-diagnostic methylation signals.</li>
+                        <li>• Utility for screening and follow-up prioritization.</li>
+                        <li>• Robustness to confounders and cohort shifts.</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -600,9 +608,15 @@ function App() {
                     <h5 className="font-semibold mb-2" style={{ color: '#e74c3c' }}>BRCA Mutation Subtypes</h5>
                     <p className="text-sm mb-2"><strong>BRCA (with mutation) vs. BRCA (without mutation)</strong></p>
                     <div className="text-xs space-y-1">
-                      <div>• 50 BRCA+ cases with confirmed mutations</div>
-                      <div>• 15 BRCA+ cases without known mutations</div>
-                      <div>• Explores epigenetic vs. genetic pathways</div>
+                      <ul className="text-xs space-y-1 text-gray-700">
+                        <li>• 50 BRCA+ cases with confirmed mutations</li>
+                        <li>• 50 BRCA+ cases with confirmed mutations</li>
+                        <li>• 15 BRCA+ cases without known mutations</li>
+                        <li>• Explores epigenetic vs. genetic pathways</li>
+                        <li>• Discerns epigenetic differences beyond genetic status.</li>
+                        <li>• Supports treatment selection and subtype research.</li>
+                        <li>• Consistent performance despite class imbalance.</li>
+                      </ul>
                     </div>
                   </div>
 
@@ -610,34 +624,16 @@ function App() {
                     <h5 className="font-semibold mb-2" style={{ color: '#f39c12' }}>Healthy Mutation Status</h5>
                     <p className="text-sm mb-2"><strong>HEALTHY (with mutation) vs. HEALTHY (without mutation)</strong></p>
                     <div className="text-xs space-y-1">
-                      <div>• 22 healthy carriers of mutations</div>
-                      <div>• 57 healthy without mutations</div>
-                      <div>• Identifies mutation-related methylation patterns</div>
+                      <ul className="text-xs space-y-1 text-gray-700">
+                        <li>• 22 healthy carriers of mutations</li>
+                        <li>• 57 healthy without mutations</li>
+                        <li>• Identifies mutation-related methylation patterns</li>
+                        <li>• Detects carrier-specific methylation patterns.</li>
+                        <li>• Enables preventive counseling and surveillance.</li>
+                        <li>• High specificity to avoid unnecessary anxiety.</li>
+                      </ul>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-6 border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
-              <h4 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Comprehensive Classification Evaluation
-              </h4>
-              <div className="grid md:grid-cols-3 gap-4 text-center">
-                <div>
-                  <div className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>4+</div>
-                  <div className="text-sm font-medium">Classification Scenarios</div>
-                  <div className="text-xs text-gray-600">Binary & multi-class combinations</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>2×</div>
-                  <div className="text-sm font-medium">Metaheuristic Algorithms</div>
-                  <div className="text-xs text-gray-600">GA + PSO optimization</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>5×</div>
-                  <div className="text-sm font-medium">ML Algorithms</div>
-                  <div className="text-xs text-gray-600">Tree-based ensemble methods</div>
                 </div>
               </div>
             </div>
