@@ -76,34 +76,69 @@ function App() {
               </div>
             </div>
 
-            <div className="text-center bg-white rounded-lg p-6 shadow-lg mt-8">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Dataset Composition (Total: 711 Samples)
+            <div className="bg-white rounded-lg p-6 shadow-lg mt-8">
+              <h3 className="text-2xl font-bold mb-2 text-center" style={{ color: 'var(--breast-cancer-accent)' }}>
+                Population Cohorts
               </h3>
-              <div className="grid md:grid-cols-3 gap-4 text-center mb-6">
-                <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(46, 204, 113, 0.1)', border: '2px solid #2ecc71' }}>
-                  <strong>HEALTHY</strong><br />
-                  <span className="text-sm"><strong>591 samples</strong></span>
-                  <div className="text-xs mt-2 space-y-1">
-                    <div>• With mutation: 22</div>
-                    <div>• Without mutation: 57</div>
-                    <div>• Not specified: 512</div>
+              <p className="text-sm text-gray-600 text-center mb-4">Five populations used in this study and their sample counts</p>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {/* Healthy with mutation */}
+                <div className="p-4 rounded-lg border shadow-sm">
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'rgba(46, 204, 113, 0.15)', border: '2px solid #2ecc71' }}>
+                      <span className="text-xl">🧬</span>
+                    </div>
+                    <div className="text-sm font-semibold">Healthy (with mutation)</div>
+                    <div className="text-xs text-gray-600">n = <strong>22</strong></div>
                   </div>
                 </div>
-                <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(241, 196, 15, 0.1)', border: '2px solid #f1c40f' }}>
-                  <strong>PRE-BRCA</strong><br />
-                  <span className="text-sm"><strong>134 samples</strong><br />Developed cancer within 5 years</span>
+                {/* Healthy without mutation */}
+                <div className="p-4 rounded-lg border shadow-sm">
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'rgba(46, 204, 113, 0.15)', border: '2px solid #2ecc71' }}>
+                      <span className="text-xl">✅</span>
+                    </div>
+                    <div className="text-sm font-semibold">Healthy (without mutation)</div>
+                    <div className="text-xs text-gray-600">n = <strong>57</strong></div>
+                  </div>
                 </div>
-                <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(231, 76, 60, 0.1)', border: '2px solid #e74c3c' }}>
-                  <strong>BRCA</strong><br />
-                  <span className="text-sm"><strong>65 samples</strong><br />Confirmed breast cancer patients</span>
-                  <div className="text-xs mt-2 space-y-1">
-                    <div>• With mutation: 50</div>
-                    <div>• Without mutation: 15</div>
+                {/* Pre-BRCA */}
+                <div className="p-4 rounded-lg border shadow-sm">
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'rgba(241, 196, 15, 0.15)', border: '2px solid #f1c40f' }}>
+                      <span className="text-xl">⏳</span>
+                    </div>
+                    <div className="text-sm font-semibold">PRE-BRCA</div>
+                    <div className="text-xs text-gray-600">n = <strong>134</strong></div>
+                    <div className="text-[10px] text-gray-500 mt-1">Developed cancer within 5 years</div>
+                  </div>
+                </div>
+                {/* BRCA with mutation */}
+                <div className="p-4 rounded-lg border shadow-sm">
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'rgba(231, 76, 60, 0.15)', border: '2px solid #e74c3c' }}>
+                      <span className="text-xl">🧬</span>
+                    </div>
+                    <div className="text-sm font-semibold">BRCA (with mutation)</div>
+                    <div className="text-xs text-gray-600">n = <strong>50</strong></div>
+                  </div>
+                </div>
+                {/* BRCA without mutation */}
+                <div className="p-4 rounded-lg border shadow-sm">
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'rgba(231, 76, 60, 0.15)', border: '2px solid #e74c3c' }}>
+                      <span className="text-xl">🎗️</span>
+                    </div>
+                    <div className="text-sm font-semibold">BRCA (without mutation)</div>
+                    <div className="text-xs text-gray-600">n = <strong>15</strong></div>
                   </div>
                 </div>
               </div>
-            </div>
+                <div className="mt-4">
+                <h4 className="font-semibold text-sm text-gray-600 mb-2">Additional Samples:</h4>
+                <div className="text-sm">• Healthy (mutation status unknown): <strong>512</strong></div>
+                </div>
+              </div>
           </div>
         </Section>
 
@@ -546,95 +581,99 @@ function App() {
           </div>
         </Section>
 
-        {/* Classification Strategy - Binary and multi-class combinations */}
+        {/* Classification Strategy - What accurate models enable per dataset */}
         <Section sectionId="classification-strategy" sectionTitle="Classification Strategy" backgroundTheme="breast-cancer-bg-2">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Multiple Classification Scenarios Tested
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>
+                What accurate models enable per dataset
               </h3>
-              <p className="text-lg max-w-4xl mx-auto">
-                Our approach tests the model's ability to distinguish between different class combinations,
-                evaluating both <strong>mutation-based</strong> and <strong>disease-state</strong> classifications.
+              <p className="text-base max-w-4xl mx-auto">
+                For each dataset combination below, if the model is accurate it unlocks concrete clinical and research actions.
               </p>
             </div>
 
-            <div className="grid gap-6 lg:grid-cols-2">
-              {/* Primary Classifications */}
-              <div className="bg-white rounded-lg p-6 shadow-lg">
-                <h4 className="text-xl font-bold mb-4 text-center" style={{ color: 'var(--breast-cancer-accent)' }}>
-                  🎯 Primary Disease Classification
-                </h4>
-
-                <div className="space-y-4">
-                  <div className="p-4 rounded-lg border" style={{ borderColor: '#2ecc71', backgroundColor: 'rgba(46, 204, 113, 0.05)' }}>
-                    <h5 className="font-semibold mb-2" style={{ color: '#2ecc71' }}>Three-Class Challenge</h5>
-                    <p className="text-sm mb-2"><strong>HEALTHY vs. PRE-BRCA vs. BRCA</strong></p>
-                    <div className="text-xs space-y-1">
-                      <ul className="text-xs space-y-1 text-gray-700">
-                        <li>• 512 healthy controls</li>
-                        <li>• 134 pre-diagnostic cases (developed cancer within 5 years)</li>
-                        <li>• 65 confirmed breast cancer patients</li>
-                        <li>• Low false negatives for BRCA and PRE-BRCA to support early intervention</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-lg border" style={{ borderColor: '#3498db', backgroundColor: 'rgba(52, 152, 219, 0.05)' }}>
-                    <h5 className="font-semibold mb-2" style={{ color: '#3498db' }}>Early Detection Focus</h5>
-                    <p className="text-sm mb-2"><strong>HEALTHY vs. PRE-BRCA</strong></p>
-                    <div className="text-xs space-y-1">
-                      <ul className="text-xs space-y-1 text-gray-700">
-                        <li>• Identifies pre-diagnostic methylation signatures</li>
-                        <li>• Critical for early intervention strategies</li>
-                        <li>• Distinguishes transient from persistent changes</li>
-                        <li>• Sensitivity to subtle pre-diagnostic methylation signals.</li>
-                        <li>• Utility for screening and follow-up prioritization.</li>
-                        <li>• Robustness to confounders and cohort shifts.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {/* 1 */}
+              <div className="p-4 rounded-lg bg-white shadow-lg border" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                <div className="font-semibold text-sm">HEALTHY-MT-WT-BRCA</div>
+                <div className="text-xs text-gray-600 mb-2">3-class (Healthy with/without mutation + Cancer)</div>
+                <ul className="text-xs space-y-1 text-gray-700">
+                  <li>• Route carriers to enhanced surveillance; fast-track BRCA to diagnostics.</li>
+                  <li>• Allocate resources by risk strata across three groups.</li>
+                </ul>
               </div>
-
-              {/* Mutation-Based Classifications */}
-              <div className="bg-white rounded-lg p-6 shadow-lg">
-                <h4 className="text-xl font-bold mb-4 text-center" style={{ color: 'var(--breast-cancer-accent)' }}>
-                  🧬 Mutation-Based Classification
-                </h4>
-
-                <div className="space-y-4">
-                  <div className="p-4 rounded-lg border" style={{ borderColor: '#e74c3c', backgroundColor: 'rgba(231, 76, 60, 0.05)' }}>
-                    <h5 className="font-semibold mb-2" style={{ color: '#e74c3c' }}>BRCA Mutation Subtypes</h5>
-                    <p className="text-sm mb-2"><strong>BRCA (with mutation) vs. BRCA (without mutation)</strong></p>
-                    <div className="text-xs space-y-1">
-                      <ul className="text-xs space-y-1 text-gray-700">
-                        <li>• 50 BRCA+ cases with confirmed mutations</li>
-                        <li>• 50 BRCA+ cases with confirmed mutations</li>
-                        <li>• 15 BRCA+ cases without known mutations</li>
-                        <li>• Explores epigenetic vs. genetic pathways</li>
-                        <li>• Discerns epigenetic differences beyond genetic status.</li>
-                        <li>• Supports treatment selection and subtype research.</li>
-                        <li>• Consistent performance despite class imbalance.</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-lg border" style={{ borderColor: '#f39c12', backgroundColor: 'rgba(243, 156, 18, 0.05)' }}>
-                    <h5 className="font-semibold mb-2" style={{ color: '#f39c12' }}>Healthy Mutation Status</h5>
-                    <p className="text-sm mb-2"><strong>HEALTHY (with mutation) vs. HEALTHY (without mutation)</strong></p>
-                    <div className="text-xs space-y-1">
-                      <ul className="text-xs space-y-1 text-gray-700">
-                        <li>• 22 healthy carriers of mutations</li>
-                        <li>• 57 healthy without mutations</li>
-                        <li>• Identifies mutation-related methylation patterns</li>
-                        <li>• Detects carrier-specific methylation patterns.</li>
-                        <li>• Enables preventive counseling and surveillance.</li>
-                        <li>• High specificity to avoid unnecessary anxiety.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+              {/* 2 */}
+              <div className="p-4 rounded-lg bg-white shadow-lg border" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                <div className="font-semibold text-sm">HEALTHY-WT-BRCA</div>
+                <div className="text-xs text-gray-600 mb-2">2-class (Healthy without mutation + Cancer)</div>
+                <ul className="text-xs space-y-1 text-gray-700">
+                  <li>• Population triage before imaging to reduce unnecessary mammograms.</li>
+                  <li>• Fast-track positives to diagnostic imaging.</li>
+                </ul>
+              </div>
+              {/* 3 */}
+              <div className="p-4 rounded-lg bg-white shadow-lg border" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                <div className="font-semibold text-sm">HEALTHY-MT-BRCA</div>
+                <div className="text-xs text-gray-600 mb-2">2-class (Healthy with mutation + Cancer)</div>
+                <ul className="text-xs space-y-1 text-gray-700">
+                  <li>• Early detection in mutation carriers with immediate referral.</li>
+                  <li>• Monitor carriers for emergent malignant signatures.</li>
+                </ul>
+              </div>
+              {/* 4 */}
+              <div className="p-4 rounded-lg bg-white shadow-lg border" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                <div className="font-semibold text-sm">HEALTHY-BRCA</div>
+                <div className="text-xs text-gray-600 mb-2">2-class (All healthy + Cancer)</div>
+                <ul className="text-xs space-y-1 text-gray-700">
+                  <li>• Broad blood-based screening to complement mammography.</li>
+                  <li>• Non-invasive recurrence monitoring post-treatment.</li>
+                </ul>
+              </div>
+              {/* 5 */}
+              <div className="p-4 rounded-lg bg-white shadow-lg border" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                <div className="font-semibold text-sm">HEALTHY-PRE-BRCA</div>
+                <div className="text-xs text-gray-600 mb-2">2-class (Healthy + Pre-diagnostic)</div>
+                <ul className="text-xs space-y-1 text-gray-700">
+                  <li>• 5-year risk stratification and intensified follow-up.</li>
+                  <li>• Enrollment into prevention and lifestyle programs.</li>
+                </ul>
+              </div>
+              {/* 6 */}
+              <div className="p-4 rounded-lg bg-white shadow-lg border" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                <div className="font-semibold text-sm">HEALTHY-PRE-BRCA-BRCA</div>
+                <div className="text-xs text-gray-600 mb-2">3-class (Healthy + Pre-diagnostic + Cancer)</div>
+                <ul className="text-xs space-y-1 text-gray-700">
+                  <li>• Stage-aware care: routine screening, surveillance, or urgent oncology.</li>
+                  <li>• Prioritize clinical-trial recruitment by stage.</li>
+                </ul>
+              </div>
+              {/* 7 */}
+              <div className="p-4 rounded-lg bg-white shadow-lg border" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                <div className="font-semibold text-sm">PRE-BRCA-BRCA</div>
+                <div className="text-xs text-gray-600 mb-2">2-class (Pre-diagnostic + Cancer)</div>
+                <ul className="text-xs space-y-1 text-gray-700">
+                  <li>• Distinguish pre-diagnostic from active disease to avoid overtreatment.</li>
+                  <li>• Decide urgency and need for imaging/invasive tests.</li>
+                </ul>
+              </div>
+              {/* 8 */}
+              <div className="p-4 rounded-lg bg-white shadow-lg border" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                <div className="font-semibold text-sm">PRE-BRCA-BRCA-MT</div>
+                <div className="text-xs text-gray-600 mb-2">2-class (Pre-diagnostic + Cancer with mutation)</div>
+                <ul className="text-xs space-y-1 text-gray-700">
+                  <li>• Anticipate mutation-driven cancers; evaluate targeted therapy pathways.</li>
+                  <li>• Intensify surveillance for likely progression to mutation-positive cancer.</li>
+                </ul>
+              </div>
+              {/* 9 */}
+              <div className="p-4 rounded-lg bg-white shadow-lg border" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+                <div className="font-semibold text-sm">PRE-BRCA-BRCA-WT</div>
+                <div className="text-xs text-gray-600 mb-2">2-class (Pre-diagnostic + Cancer without mutation)</div>
+                <ul className="text-xs space-y-1 text-gray-700">
+                  <li>• Detect epigenetically-driven cancers in non-carriers.</li>
+                  <li>• Extend screening beyond genetic tests for equitable coverage.</li>
+                </ul>
               </div>
             </div>
           </div>
