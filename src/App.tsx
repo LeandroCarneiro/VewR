@@ -15,9 +15,9 @@ function App() {
       {/* Main content with proper slideshow structure - full screen */}
       <main className="">
         {/* Title Slide - Project title, name, institution */}
-        <Section sectionId="home" backgroundTheme="breast-cancer-bg-1">
-          <div className="flex min-h-screen flex-col items-center justify-center gap-6 text-center px-8">
-            <div className="mb-8">
+        <Section sectionId="home" backgroundTheme="breast-cancer-bg-4">
+          <div className="lex-col justify-center items-center text-center">
+            <div className="mb-48">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
                 <span className="text-4xl text-white">🎗️</span>
               </div>
@@ -134,11 +134,11 @@ function App() {
                   </div>
                 </div>
               </div>
-                <div className="mt-4">
+              <div className="mt-4">
                 <h4 className="font-semibold text-sm text-gray-600 mb-2">Additional Samples:</h4>
                 <div className="text-sm">• Healthy (mutation status unknown): <strong>512</strong></div>
-                </div>
               </div>
+            </div>
           </div>
         </Section>
 
@@ -216,6 +216,150 @@ function App() {
           </div>
         </Section>
 
+        {/* Methodology - Research approach and methods */}
+        <Section sectionId="methodology" sectionTitle="Methodology" backgroundTheme="breast-cancer-bg-3">
+          <div className="max-w-7xl mx-auto">
+            {/* Multi-Dataset Comparison Strategy */}
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
+                Comprehensive Multi-Dataset Comparison Strategy
+              </h3>
+              <p className="text-lg max-w-5xl mx-auto mb-6">
+                Our methodology systematically evaluates <strong>9 different dataset configurations</strong> to identify
+                optimal classification strategies for various clinical scenarios.
+              </p>
+            </div>
+
+            {/* Dataset Configuration Matrix */}
+            <div className="bg-white rounded-lg p-6 shadow-lg mb-6">
+              <div className="grid md:grid-cols-4 gap-4">
+                <div className="border rounded-lg p-4">
+                  <h5 className="font-semibold mb-2" style={{ color: '#2ecc71' }}>Binary Classifications</h5>
+                  <div className="text-sm space-y-1">
+                    <div>• HEALTHY-WT-BRCA</div>
+                    <div>• HEALTHY-MT-BRCA</div>
+                    <div>• HEALTHY-BRCA</div>
+                    <div>• HEALTHY-PRE-BRCA</div>
+                    <div>• PRE-BRCA-BRCA</div>
+                    <div>• PRE-BRCA-BRCA-MT</div>
+                    <div>• PRE-BRCA-BRCA-WT</div>
+                  </div>
+                </div>
+
+                <div className="border rounded-lg p-4">
+                  <h5 className="font-semibold mb-2" style={{ color: '#e74c3c' }}>Multi-Class Classifications</h5>
+                  <div className="text-sm space-y-1">
+                    <div>• HEALTHY-MT-WT-BRCA</div>
+                    <div>• HEALTHY-PRE-BRCA-BRCA</div>
+                  </div>
+                  <div className="mt-4 p-2 bg-red-50 rounded">
+                    <div className="text-xs">These represent the most challenging scenarios with 3 distinct classes</div>
+                  </div>
+                </div>
+
+                <div className="border rounded-lg p-4">
+                  <h5 className="font-semibold mb-2" style={{ color: '#3498db' }}>Evaluation Framework</h5>
+                  <div className="text-sm space-y-1">
+                    <div>• <strong>2</strong> Metaheuristics (GA, PSO)</div>
+                    <div>• <strong>5</strong> ML Algorithms</div>
+                    <div>• <strong>3</strong> Feature Selection strategies</div>
+                    <div>• <strong>8</strong> Performance metrics</div>
+                  </div>
+                </div>
+
+                <div className="border rounded-lg p-4">
+                  <div>
+                    <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Platform</h4>
+                    <p className="text-sm">Illumina Human Methylation 27 BeadChip</p>
+                    <p className="text-xs text-gray-600"><strong>27,578 CpG sites</strong></p>
+                  </div>
+                  <div className="mt-4">
+                    <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Data Sources</h4>
+                    <p className="text-sm">Gene Expression Omnibus (GEO)</p>
+                    <p className="text-xs text-gray-600">GSE58119, GSE58045, GSE57285, GSE41037, GSE32396</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Hybrid Methodology Framework */}
+            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-6 border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
+              <h3 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
+                Mamo.IA Hybrid Framework
+              </h3>
+              <div className="flex justify-center items-center space-x-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
+                    <span className="text-2xl text-white">🧬</span>
+                  </div>
+                  <h4 className="font-bold text-sm">Metaheuristics</h4>
+                  <p className="text-xs">GA & PSO</p>
+                </div>
+
+                <div className="text-3xl" style={{ color: 'var(--breast-cancer-accent)' }}>+</div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
+                    <span className="text-2xl text-white">🌳</span>
+                  </div>
+                  <h4 className="font-bold text-sm">Tree Ensembles</h4>
+                  <p className="text-xs">5 ML algorithms</p>
+                </div>
+
+                <div className="text-3xl" style={{ color: 'var(--breast-cancer-accent)' }}>=</div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
+                    <span className="text-2xl text-white">🎯</span>
+                  </div>
+                  <h4 className="font-bold text-sm">Classification</h4>
+                  <p className="text-xs">Interpretable results</p>
+                </div>
+              </div>
+
+              <br />
+              <h3 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
+                Process Workflow
+              </h3>
+              <div className="flex justify-center items-center space-x-3 overflow-x-auto">
+                <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
+                  <div className="text-xl mb-1">📁</div>
+                  <div className="text-xs font-semibold">Data Collection</div>
+                  <div className="text-xs opacity-75">711 samples</div>
+                </div>
+                <div className="text-lg" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
+
+                <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
+                  <div className="text-xl mb-1">⚔️</div>
+                  <div className="text-xs font-semibold">Data Split</div>
+                  <div className="text-xs opacity-75">70% | 15% | 15%</div>
+                </div>
+                <div className="text-lg" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
+
+                <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
+                  <div className="text-xl mb-1">⚖️</div>
+                  <div className="text-xs font-semibold">SMOTE</div>
+                  <div className="text-xs opacity-75">Balance</div>
+                </div>
+                <div className="text-lg" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
+
+                <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
+                  <div className="text-xl mb-1">🔍</div>
+                  <div className="text-xs font-semibold">Feature Selection</div>
+                  <div className="text-xs opacity-75">GA & PSO</div>
+                </div>
+                <div className="text-lg" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
+
+                <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
+                  <div className="text-xl mb-1">🎯</div>
+                  <div className="text-xs font-semibold">Classification</div>
+                  <div className="text-xs opacity-75">5 ML models</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+
         {/* Metaheuristics - Why and how they work */}
         <Section sectionId="metaheuristics" sectionTitle="Metaheuristic Algorithms" backgroundTheme="breast-cancer-bg-4">
           <div className="max-w-6xl mx-auto">
@@ -258,20 +402,20 @@ function App() {
                 </div>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <strong>Individual Representation:</strong> 
+                    <strong>Individual Representation:</strong>
                     <div className="ml-4 mt-2 text-xs font-mono bg-gray-100 p-2 rounded">
-                      I = [w₁, w₂, ..., wₙ] where wᵢ ∈ [0,1]<br/> 
+                      I = [w₁, w₂, ..., wₙ] where wᵢ ∈ [0,1]<br />
                       for all i in [1,...,n_features]
                     </div>
                   </div>
                   <div>
-                    <strong>Population:</strong> 
+                    <strong>Population:</strong>
                     <div className="ml-4 mt-2 text-xs font-mono bg-gray-100 p-2 rounded">
                       P(t) = {'{'}{`I1, I2, ..., Ip`}{'}'} where p = pop_size
                     </div>
                   </div>
                   <div>
-                    <strong>Fitness:</strong> 
+                    <strong>Fitness:</strong>
                     <div className="ml-4 mt-2 text-xs font-mono bg-gray-100 p-2 rounded">
                       f(I) = 1 - (1/5) × Σᵢ₌₁⁵ κ(X ⊙ I, Y)
                     </div>
@@ -303,13 +447,13 @@ function App() {
                       f(w) = 1 - mean([cohen_kappa(est, X × w, Y) for cv in 5 folds])
                     </div>
                   </div>
-                    <div>
+                  <div>
                     <strong>Where:</strong>
                     <ul className="ml-4 mt-2 space-y-1 text-xs">
                       <li>• w = particle position = feature weights [w₁, w₂, ..., wₙ]</li>
                       <li>• X × w = feature matrix with weighted features</li>
                     </ul>
-                    </div>
+                  </div>
                   <div>
                     <strong>Feature Selection:</strong>
                     <div className="ml-4 mt-2 text-xs font-mono bg-gray-100 p-2 rounded text-center">
@@ -432,155 +576,6 @@ function App() {
           </div>
         </Section>
 
-        {/* Methodology - Research approach and methods */}
-        <Section sectionId="methodology" sectionTitle="Methodology" backgroundTheme="breast-cancer-bg-3">
-          <div className="max-w-7xl mx-auto">
-            {/* Multi-Dataset Comparison Strategy */}
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Comprehensive Multi-Dataset Comparison Strategy
-              </h3>
-              <p className="text-lg max-w-5xl mx-auto mb-6">
-                Our methodology systematically evaluates <strong>9 different dataset configurations</strong> to identify
-                optimal classification strategies for various clinical scenarios.
-              </p>
-            </div>
-
-            {/* Dataset Configuration Matrix */}
-            <div className="bg-white rounded-lg p-6 shadow-lg mb-6">
-              <div className="grid md:grid-cols-4 gap-4">
-                <div className="border rounded-lg p-4">
-                  <h5 className="font-semibold mb-2" style={{ color: '#2ecc71' }}>Binary Classifications</h5>
-                  <div className="text-sm space-y-1">
-                  <div>• HEALTHY-WT-BRCA</div>
-                  <div>• HEALTHY-MT-BRCA</div>
-                  <div>• HEALTHY-BRCA</div>
-                  <div>• HEALTHY-PRE-BRCA</div>
-                  <div>• PRE-BRCA-BRCA</div>
-                  <div>• PRE-BRCA-BRCA-MT</div>
-                  <div>• PRE-BRCA-BRCA-WT</div>
-                  </div>
-                </div>
-
-                <div className="border rounded-lg p-4">
-                  <h5 className="font-semibold mb-2" style={{ color: '#e74c3c' }}>Multi-Class Classifications</h5>
-                  <div className="text-sm space-y-1">
-                  <div>• HEALTHY-MT-WT-BRCA</div>
-                  <div>• HEALTHY-PRE-BRCA-BRCA</div>
-                  </div>
-                  <div className="mt-4 p-2 bg-red-50 rounded">
-                  <div className="text-xs">These represent the most challenging scenarios with 3 distinct classes</div>
-                  </div>
-                </div>
-
-                <div className="border rounded-lg p-4">
-                  <h5 className="font-semibold mb-2" style={{ color: '#3498db' }}>Evaluation Framework</h5>
-                  <div className="text-sm space-y-1">
-                  <div>• <strong>2</strong> Metaheuristics (GA, PSO)</div>
-                  <div>• <strong>5</strong> ML Algorithms</div>
-                  <div>• <strong>3</strong> Feature Selection strategies</div>
-                  <div>• <strong>8</strong> Performance metrics</div>
-                  </div>
-                </div>
-
-                <div className="border rounded-lg p-4">
-                  <div>
-                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Platform</h4>
-                  <p className="text-sm">Illumina Human Methylation 27 BeadChip</p>
-                  <p className="text-xs text-gray-600"><strong>27,578 CpG sites</strong></p>
-                  </div>
-                  <div className="mt-4">
-                  <h4 className="font-semibold mb-2" style={{ color: 'var(--breast-cancer-accent)' }}>Data Sources</h4>
-                  <p className="text-sm">Gene Expression Omnibus (GEO)</p>
-                  <p className="text-xs text-gray-600">GSE58119, GSE58045, GSE57285, GSE41037, GSE32396</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Hybrid Methodology Framework */}
-            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-6 border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
-              <h3 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-              Mamo.IA Hybrid Framework
-              </h3>
-              <div className="flex justify-center items-center space-x-6">
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                  <span className="text-2xl text-white">🧬</span>
-                  </div>
-                  <h4 className="font-bold text-sm">Metaheuristics</h4>
-                  <p className="text-xs">GA & PSO</p>
-                </div>
-
-                <div className="text-3xl" style={{ color: 'var(--breast-cancer-accent)' }}>+</div>
-
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                  <span className="text-2xl text-white">🌳</span>
-                  </div>
-                  <h4 className="font-bold text-sm">Tree Ensembles</h4>
-                  <p className="text-xs">5 ML algorithms</p>
-                </div>
-
-                <div className="text-3xl" style={{ color: 'var(--breast-cancer-accent)' }}>=</div>
-
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                  <span className="text-2xl text-white">🎯</span>
-                  </div>
-                  <h4 className="font-bold text-sm">Classification</h4>
-                  <p className="text-xs">Interpretable results</p>
-                </div>
-              </div>
-
-              <br />
-              <h3 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-              Process Workflow
-              </h3>
-              <div className="flex justify-center items-center space-x-3 overflow-x-auto">
-              <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
-                <div className="text-xl mb-1">📁</div>
-                <div className="text-xs font-semibold">Data Collection</div>
-                <div className="text-xs opacity-75">711 samples</div>
-              </div>
-              <div className="text-lg" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
-
-              <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
-                <div className="text-xl mb-1">⚔️</div>
-                <div className="text-xs font-semibold">Data Split</div>
-                <div className="text-xs opacity-75">70/15/15%</div>
-              </div>
-              <div className="text-lg" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
-
-              <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
-                <div className="text-xl mb-1">⚖️</div>
-                <div className="text-xs font-semibold">SMOTE</div>
-                <div className="text-xs opacity-75">Balance</div>
-              </div>
-              <div className="text-lg" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
-
-              <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
-                <div className="text-xl mb-1">🔍</div>
-                <div className="text-xs font-semibold">Feature Selection</div>
-                <div className="text-xs opacity-75">GA & PSO</div>
-              </div>
-              <div className="text-lg" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
-
-              <div className="bg-white rounded-lg p-3 shadow-lg text-center min-w-24">
-                <div className="text-xl mb-1">🎯</div>
-                <div className="text-xs font-semibold">Classification</div>
-                <div className="text-xs opacity-75">5 ML models</div>
-              </div>
-              </div>
-            </div>
-
-            {/* Process Flow */}
-            <div className="mt-6">
-              
-            </div>
-          </div>
-        </Section>
-
         {/* Classification Strategy - What accurate models enable per dataset */}
         <Section sectionId="classification-strategy" sectionTitle="Classification Strategy" backgroundTheme="breast-cancer-bg-2">
           <div className="max-w-7xl mx-auto">
@@ -679,166 +674,14 @@ function App() {
           </div>
         </Section>
 
-        {/* Data Processing - Detailed implementation */}
-        <Section sectionId="data-processing" sectionTitle="Data Processing Pipeline" backgroundTheme="breast-cancer-bg-4">
-          <div className="max-w-7xl mx-auto h-full flex flex-col justify-center">
-            {/* Three Column Layout - Main Content */}
-            <div className="grid gap-6 grid-cols-3 mb-6">
-              {/* Column 1: Data Partitioning */}
-              <div className="bg-white rounded-lg p-5 shadow-lg">
-                <div className="text-center mb-4">
-                  <div className="w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                    <span className="text-xl text-white">⚔️</span>
-                  </div>
-                  <h3 className="text-lg font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>Data Partitioning</h3>
-                </div>
-
-                <div className="space-y-3 mb-4">
-                  <div className="flex justify-between items-center p-2 rounded text-sm" style={{ backgroundColor: 'rgba(46, 204, 113, 0.1)' }}>
-                    <span><strong>Training</strong></span>
-                    <span className="font-bold">70%</span>
-                  </div>
-                  <div className="flex justify-between items-center p-2 rounded text-sm" style={{ backgroundColor: 'rgba(52, 152, 219, 0.1)' }}>
-                    <span><strong>Validation</strong></span>
-                    <span className="font-bold">15%</span>
-                  </div>
-                  <div className="flex justify-between items-center p-2 rounded text-sm" style={{ backgroundColor: 'rgba(231, 76, 60, 0.1)' }}>
-                    <span><strong>Testing</strong></span>
-                    <span className="font-bold">15%</span>
-                  </div>
-                </div>
-
-                <div className="border-t pt-3">
-                  <h4 className="font-semibold mb-2 text-sm">SMOTE Balancing</h4>
-                  <ul className="text-xs space-y-1 text-gray-700">
-                    <li>• Training set only</li>
-                    <li>• Prevents data leakage</li>
-                    <li>• Synthetic minority samples</li>
-                    <li>• Maintains distribution</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Column 2: Feature Selection */}
-              <div className="bg-white rounded-lg p-5 shadow-lg">
-                <div className="text-center mb-4">
-                  <div className="w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                    <span className="text-xl text-white">🧬</span>
-                  </div>
-                  <h3 className="text-lg font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>GA & PSO Algorithms</h3>
-                </div>
-
-                <div className="space-y-3 text-xs">
-                  <div>
-                    <strong>Two Metaheuristics Tested:</strong>
-                    <ul className="mt-1 space-y-1">
-                      <li>• <strong>Genetic Algorithm (GA)</strong></li>
-                      <li>• <strong>Particle Swarm Optimization (PSO)</strong></li>
-                    </ul>
-                  </div>
-                  <div>
-                    <strong>Fitness Function (Both):</strong>
-                    <div className="mt-1 p-2 bg-gray-50 rounded font-mono text-xs">
-                      f(x) = 1 - CV_Accuracy + α×(features/D)
-                    </div>
-                  </div>
-                  <div>
-                    <strong>Binary Encoding:</strong> 27K-dimensional vectors
-                  </div>
-                  <div>
-                    <strong>Common Parameters:</strong>
-                    <ul className="mt-1 space-y-1">
-                      <li>• Population: 50-100</li>
-                      <li>• α = 0.01 (penalty factor)</li>
-                      <li>• Max iterations: 100</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Column 3: Evaluation */}
-              <div className="bg-white rounded-lg p-5 shadow-lg">
-                <div className="text-center mb-4">
-                  <div className="w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                    <span className="text-xl text-white">🎯</span>
-                  </div>
-                  <h3 className="text-lg font-bold" style={{ color: 'var(--breast-cancer-accent)' }}>ML Evaluation</h3>
-                </div>
-
-                <div className="space-y-3">
-                  <div>
-                    <h4 className="font-semibold mb-2 text-sm">Cross-Validation</h4>
-                    <ul className="text-xs space-y-1">
-                      <li>• <strong>5-fold</strong> stratified CV</li>
-                      <li>• <strong>Training data</strong> only</li>
-                      <li>• <strong>Prevents</strong> overfitting</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2 text-sm">Metrics</h4>
-                    <div className="grid grid-cols-2 gap-1 text-xs">
-                      <span>• Accuracy</span><span>• Sensitivity</span>
-                      <span>• F1-Score</span><span>• Specificity</span>
-                      <span>• ROC-AUC</span><span>• Kappa</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold mb-2 text-sm">Algorithms</h4>
-                    <div className="text-xs space-y-1">
-                      <div>• Random Forest</div>
-                      <div>• XGBoost</div>
-                      <div>• LightGBM</div>
-                      <div>• Gradient Boosting</div>
-                      <div>• AdaBoost</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Termination Criteria - Full Width at Bottom */}
-            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-4 border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
-              <h3 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                GA & PSO Termination Criteria
-              </h3>
-              <div className="grid grid-cols-3 gap-8 text-center">
-                <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                    <span className="text-2xl font-bold text-white">100</span>
-                  </div>
-                  <div className="text-sm font-semibold">Maximum Iterations</div>
-                  <div className="text-xs text-gray-600">Hard limit for optimization</div>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                    <span className="text-xl font-bold text-white">&lt;1%</span>
-                  </div>
-                  <div className="text-sm font-semibold">Fitness Improvement</div>
-                  <div className="text-xs text-gray-600">Convergence threshold</div>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mb-2" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                    <span className="text-2xl font-bold text-white">10</span>
-                  </div>
-                  <div className="text-sm font-semibold">Stagnation Iterations</div>
-                  <div className="text-xs text-gray-600">Early stopping criterion</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Section>
-
         {/* Results Part 1 - ML Models Performance by Dataset */}
         <Section sectionId="results-models" sectionTitle="Results - ML Models Performance" backgroundTheme="breast-cancer-bg-4">
           <div className="max-w-7xl mx-auto h-full flex flex-col">
-            <div className="text-center mb-4 flex-shrink-0">
+            <div className="text-center mb-2 flex-shrink-0">
               <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--breast-cancer-accent)' }}>
                 ML Models Performance by Dataset
               </h3>
               <p className="text-base opacity-80 max-w-4xl mx-auto">
-                Comprehensive comparison of 5 machine learning algorithms across 9 different dataset configurations.
                 Each chart shows model performance with GA, PSO, and no optimization.
               </p>
             </div>
@@ -1001,47 +844,47 @@ function App() {
         </Section>
 
         {/* Acknowledgments slide */}
-        <Section sectionId="acknowledgments" sectionTitle="" backgroundTheme="breast-cancer-bg-6">
-          <div className="max-w-4xl mx-auto h-full flex flex-col justify-center text-center">
-            <div className="mb-4">
-              <div className="w-16 h-16 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
-                <span className="text-2xl text-white">🙏</span>
+        <Section sectionId="acknowledgments" sectionTitle="" backgroundTheme="breast-cancer-bg-4">
+          <div className="flex-col justify-center items-center text-center ">
+            <div className="mb">
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--breast-cancer-accent)' }}>
+                <span className="text-4xl text-white">🙏</span>
               </div>
             </div>
 
-            <h1 className="text-3xl font-bold mb-4" style={{ color: 'var(--breast-cancer-text)' }}>
+            <h1 className="text-5xl font-bold mb-4" style={{ color: 'var(--breast-cancer-text)' }}>
               Thank You
             </h1>
 
-            <div className="space-y-3 text-base" style={{ color: 'var(--breast-cancer-text)' }}>
-              <p className="font-medium text-lg">
+            <div className="space-y-4 text-lg" style={{ color: 'var(--breast-cancer-text)' }}>
+              <p className="font-medium text-2xl">
                 Questions and Discussion
               </p>
 
-              <div className="mt-4 space-y-2">
+              <div className="mt-6 space-y-3">
                 <div>
-                  <p className="font-semibold">Leandro C. Author & Wellingthon P. Researcher</p>
-                  <p className="opacity-80 text-sm">Universidade de Pernambuco</p>
+                  <p className="font-semibold text-xl">Leandro C. Author & Wellingthon P. Researcher</p>
+                  <p className="opacity-80 text-lg">Universidade de Pernambuco</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 flex justify-center items-center gap-3 flex-wrap">
-              <div className="px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: 'rgba(255, 107, 157, 0.2)', color: 'var(--breast-cancer-accent)' }}>
+            <div className="mt-10 flex justify-center items-center gap-4 flex-wrap">
+              <div className="px-6 py-2 rounded-full text-base font-medium" style={{ backgroundColor: 'rgba(255, 107, 157, 0.2)', color: 'var(--breast-cancer-accent)' }}>
                 Mamo.IA Framework
               </div>
-              <div className="px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: 'rgba(255, 107, 157, 0.2)', color: 'var(--breast-cancer-accent)' }}>
+              <div className="px-6 py-2 rounded-full text-base font-medium" style={{ backgroundColor: 'rgba(255, 107, 157, 0.2)', color: 'var(--breast-cancer-accent)' }}>
                 Epigenetic Biomarkers
               </div>
-              <div className="px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: 'rgba(255, 107, 157, 0.2)', color: 'var(--breast-cancer-accent)' }}>
+              <div className="px-6 py-2 rounded-full text-base font-medium" style={{ backgroundColor: 'rgba(255, 107, 157, 0.2)', color: 'var(--breast-cancer-accent)' }}>
                 GA & PSO Optimization
               </div>
             </div>
 
-            <div className="mt-4 text-xs opacity-60">
+            <div className="mt-8 text-base">
               <p><strong>MAMO.IA:</strong> Breast Cancer Detection using Machine Learning and Bio-inspired Optimization</p>
-              <img src="src/assets/logo-upe.png" alt="UPE Logo" className="mt-8 h-20 mx-auto" />
-              <p className="mt-1">{new Date().getFullYear()}</p>
+              <img src="src/assets/logo-upe.png" alt="UPE Logo" className="mt-10 h-24 mx-auto" />
+              <p className="mt-3">{new Date().getFullYear()}</p>
             </div>
           </div>
         </Section>

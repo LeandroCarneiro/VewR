@@ -23,7 +23,7 @@ export const Section: React.FC<SectionProps> = ({ sectionId, sectionTitle, anima
       entries.forEach((entry) => {
         if (entry.isIntersecting) setInView(true);
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -20% 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px 0% 0px' });
 
     observer.observe(el);
     return () => observer.disconnect();

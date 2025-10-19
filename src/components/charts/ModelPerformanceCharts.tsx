@@ -198,11 +198,13 @@ export const ModelPerformanceCharts: React.FC = () => {
         label: `${optimizer === 'ALL' ? 'No Optimization' : optimizer + ' Optimization'}`,
         data: models.map(model => {
           const modelEntry = optimizerData.find(d => d.method === model);
-          return modelEntry ? modelEntry[selectedMetric as keyof MetricResult] as number : 0;
+          return modelEntry ? (modelEntry[selectedMetric as keyof MetricResult] as number) : 0;
         }),
         backgroundColor: optIdx === 0 ? 'rgba(52,152,219,0.7)' : optIdx === 1 ? 'rgba(231,76,60,0.7)' : 'rgba(46,204,113,0.7)',
         borderColor: optIdx === 0 ? '#3498db' : optIdx === 1 ? '#e74c3c' : '#2ecc71',
-        borderWidth: 2
+        borderWidth: 2,
+        // Ensure zero values (e.g., Kappa = 0) are still visible as small bars
+        minBarLength: 3
       };
     });
     
@@ -345,11 +347,7 @@ export const ModelPerformanceCharts: React.FC = () => {
               tabIndex={0}
               onKeyDown={(e) => e.key === 'Enter' && handleChartClick(config, index)}
             >
-              <div className="text-center mb-2">
-                <h4 className="font-bold text-xs mb-1" style={{ color: config.color }}>
-                  Dataset {index + 1}
-                </h4>
-              </div>
+             
               <div className="h-48">
                 <canvas 
                   ref={(el) => canvasRefs.current[index] = el}

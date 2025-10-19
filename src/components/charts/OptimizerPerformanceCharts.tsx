@@ -157,7 +157,9 @@ export const OptimizerPerformanceCharts: React.FC = () => {
           data: topDatasets.map(d => d.avgMetric),
           backgroundColor: color,
           borderColor: color.replace('0.7', '1'),
-          borderWidth: 2
+          borderWidth: 2,
+          // Ensure zero values are still visible
+          minBarLength: 3
         }]
       },
       options: {
@@ -233,7 +235,8 @@ export const OptimizerPerformanceCharts: React.FC = () => {
           data: [gaAvg, psoAvg, allAvg],
           backgroundColor: ['rgba(52,152,219,0.7)', 'rgba(231,76,60,0.7)', 'rgba(46,204,113,0.7)'],
           borderColor: ['#3498db', '#e74c3c', '#2ecc71'],
-          borderWidth: 2
+          borderWidth: 2,
+          minBarLength: 3
         }]
       },
       options: {
