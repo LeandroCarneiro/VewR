@@ -3,6 +3,8 @@ import { Section } from './components/Section'
 import { SlideControls } from './components/SlideControls'
 import { ModelPerformanceCharts } from './components/charts/ModelPerformanceCharts'
 import { OptimizerPerformanceCharts } from './components/charts/OptimizerPerformanceCharts'
+import { MethodologyPipeline } from './components/MethodologyPipeline'
+import { ThreeClassResults } from './components/ThreeClassResults'
 
 function App() {
   return (
@@ -23,7 +25,7 @@ function App() {
               </div>
             </div>
             <h1 className="mx-auto max-w-4xl text-balance text-4xl font-bold leading-tight" style={{ color: 'var(--breast-cancer-text)' }}>
-              MAMO.IA: Breast Cancer Detection using Machine Learning and Bio-inspired Optimization
+              A Hybrid GA-PSO Approach for Feature Selection in Stratifying Breast Cancer Risk States from DNA Methylation Data
             </h1>
             <div className="mt-8 text-xl" style={{ color: 'var(--breast-cancer-text)' }}>
               <p className="font-medium"><strong>Orientador:</strong> Wellington Pinheiro</p>
@@ -120,23 +122,28 @@ function App() {
             {/* Study Proposal */}
             <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-6 border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
               <h3 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Study Proposal: MAMO.IA Framework
+                Research Objective: Three-State Risk Stratification
               </h3>
+              <div className="text-center mb-4">
+                <p className="text-base font-medium">
+                  Build a probabilistic model that distinguishes between <strong>Healthy</strong>, <strong>Pre-Cancerous (PRE-BRCA)</strong>, and <strong>Cancerous (BRCA)</strong> states
+                </p>
+              </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="font-semibold mb-3" style={{ color: 'var(--breast-cancer-accent)' }}>Primary Objectives:</h4>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
                       <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                      <strong>Identify cancer risk in early stages</strong> through DNA methylation pattern analysis
+                      <strong>Early detection:</strong> Identify individuals at risk years before clinical symptoms
                     </li>
                     <li className="flex items-start gap-2">
                       <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                      <strong>Discover CpG islands linked to BRCA1 suppression</strong> that increase breast cancer development risk
+                      <strong>Risk stratification:</strong> Return probabilities for Healthy, PRE-BRCA, and BRCA states
                     </li>
                     <li className="flex items-start gap-2">
                       <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                      <strong>Develop interpretable ML models</strong> for clinical decision support
+                      <strong>Biomarker discovery:</strong> Identify critical CpG sites linked to BRCA1 suppression
                     </li>
                   </ul>
                 </div>
@@ -145,15 +152,15 @@ function App() {
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
                       <span style={{ color: 'var(--breast-cancer-accent)' }}>⚡</span>
-                      <strong>Hybrid approach:</strong> Bio-inspired optimization + Tree-based ML
+                      <strong>Hybrid GA-PSO:</strong> Complementary optimization strategies for robust feature selection
                     </li>
                     <li className="flex items-start gap-2">
                       <span style={{ color: 'var(--breast-cancer-accent)' }}>⚡</span>
-                      <strong>Multi-dataset analysis:</strong> 9 different classification scenarios
+                      <strong>Three-class challenge:</strong> Beyond binary classification to pre-diagnostic detection
                     </li>
                     <li className="flex items-start gap-2">
                       <span style={{ color: 'var(--breast-cancer-accent)' }}>⚡</span>
-                      <strong>Epigenetic focus:</strong> Methylation-based early detection pathway
+                      <strong>Clinical actionability:</strong> Probabilistic outputs for stage-aware care decisions
                     </li>
                   </ul>
                 </div>
@@ -445,6 +452,11 @@ function App() {
               </div>
             </div>
           </div>
+        </Section>
+
+        {/* Methodology Pipeline Visualization - NEW DETAILED PIPELINE */}
+        <Section sectionId="methodology-pipeline" sectionTitle="Research Workflow - Step by Step" backgroundTheme="breast-cancer-bg-3">
+          <MethodologyPipeline />
         </Section>
 
         {/* Pipeline Process - Hybrid Framework and Rationale */}
@@ -825,34 +837,39 @@ function App() {
           </div>
         </Section>
 
+        {/* Results Part 3 - Three-Class Risk Stratification Results */}
+        <Section sectionId="results-three-class" sectionTitle="Results - Three-Class Risk Stratification" backgroundTheme="breast-cancer-bg-4">
+          <ThreeClassResults />
+        </Section>
+
         {/* Conclusion - Findings and future work */}
         <Section sectionId="conclusion" sectionTitle="Conclusion" backgroundTheme="breast-cancer-bg-5">
           <div className="max-w-7xl mx-auto h-full flex flex-col justify-center">
             {/* Main conclusions - Key Findings */}
             <div className="bg-white rounded-lg p-6 shadow-lg mb-6">
               <h3 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Multi-Dataset Study: Key Findings
+                Three-Class Risk Stratification: Key Achievements
               </h3>
               <div className="grid grid-cols-4 gap-4 text-center">
                 <div className="p-3">
-                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>100%</div>
-                  <div className="text-xs">PRE-BRCA vs BRCA Classification</div>
-                  <div className="text-xs text-gray-500">Perfect separation achieved</div>
+                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>99.35%</div>
+                  <div className="text-xs">Binary Classification</div>
+                  <div className="text-xs text-gray-500">Healthy vs BRCA (XGBoost)</div>
                 </div>
                 <div className="p-3">
-                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>94%</div>
-                  <div className="text-xs">HEALTHY vs BRCA (Best)</div>
-                  <div className="text-xs text-gray-500">With LightGBM + GA/PSO</div>
+                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>779/913</div>
+                  <div className="text-xs">Features Selected</div>
+                  <div className="text-xs text-gray-500">PSO/GA from 27,578 CpG sites</div>
                 </div>
                 <div className="p-3">
-                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>80%</div>
-                  <div className="text-xs">3-Class Challenge</div>
-                  <div className="text-xs text-gray-500">HEALTHY-MT-WT-BRCA</div>
+                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>3</div>
+                  <div className="text-xs">Risk Classes</div>
+                  <div className="text-xs text-gray-500">Healthy, PRE-BRCA, BRCA</div>
                 </div>
                 <div className="p-3">
-                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>9</div>
-                  <div className="text-xs">Dataset Configurations</div>
-                  <div className="text-xs text-gray-500">Comprehensive evaluation</div>
+                  <div className="text-2xl font-bold mb-1" style={{ color: 'var(--breast-cancer-accent)' }}>223</div>
+                  <div className="text-xs">Independent Test</div>
+                  <div className="text-xs text-gray-500">Held-out cohort samples</div>
                 </div>
               </div>
             </div>
@@ -866,27 +883,27 @@ function App() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>Multi-dataset</strong> comparative framework
+                    <strong>Three-class model:</strong> Healthy, PRE-BRCA, BRCA risk stratification
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>9 dataset configurations</strong> systematically evaluated
+                    <strong>Hybrid GA-PSO:</strong> Complementary feature selection strategies
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>GA vs PSO</strong> metaheuristic comparison
+                    <strong>Probabilistic outputs:</strong> P(Healthy), P(Risk), P(Cancer)
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>Mutation-based</strong> subgroup analysis
+                    <strong>Pre-diagnostic detection:</strong> Identify risk years before symptoms
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>Pre-diagnostic</strong> classification insights
+                    <strong>Interpretable models:</strong> Tree-based for clinical transparency
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>✓</span>
-                    <strong>Clinical strategy</strong> optimization guidance
+                    <strong>Independent validation:</strong> 223 held-out samples
                   </li>
                 </ul>
               </div>
@@ -899,23 +916,23 @@ function App() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>→</span>
-                    <strong>High-density arrays</strong> (EPIC 850K)
+                    <strong>Prospective validation:</strong> Larger cohorts with longitudinal follow-up
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>→</span>
-                    <strong>Demographic</strong> confounders study
+                    <strong>High-density arrays:</strong> EPIC 850K for enhanced resolution
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>→</span>
-                    <strong>Clinical validation</strong> trials
+                    <strong>Multi-omics:</strong> Integrate gene expression and clinical data
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>→</span>
-                    <strong>Multi-omics</strong> integration
+                    <strong>Biological validation:</strong> Functional studies of selected CpG sites
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>→</span>
-                    <strong>Diagnostic tools</strong> development
+                    <strong>Clinical deployment:</strong> Point-of-care diagnostic tool
                   </li>
                 </ul>
               </div>
@@ -928,23 +945,23 @@ function App() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>•</span>
-                    <strong>Early detection</strong> capability
+                    <strong>Stage-aware care:</strong> Routine → Surveillance → Urgent intervention
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>•</span>
-                    <strong>Risk stratification</strong> for pre-diagnostic cases
+                    <strong>Non-invasive screening:</strong> Blood-based methylation test
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>•</span>
-                    <strong>Cost reduction</strong> via screening
+                    <strong>Reduced overtreatment:</strong> Distinguish PRE-BRCA from active disease
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>•</span>
-                    <strong>Personalized medicine</strong> advancement
+                    <strong>Cost-effective triage:</strong> Prioritize high-risk individuals
                   </li>
                   <li className="flex items-start gap-2">
                     <span style={{ color: 'var(--breast-cancer-accent)' }}>•</span>
-                    <strong>Reproducible pathway</strong> for biomarkers
+                    <strong>Equitable access:</strong> Beyond genetic testing limitations
                   </li>
                 </ul>
               </div>
@@ -953,7 +970,8 @@ function App() {
             {/* Bottom summary */}
             <div className="text-center mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg border-2" style={{ borderColor: 'var(--breast-cancer-accent)' }}>
               <p className="text-base font-medium" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Mamo.IA offers a <strong>reproducible pathway</strong> for translating epigenetic signatures into <strong>non-invasive diagnostic methods</strong>
+                This hybrid GA-PSO approach achieves <strong>three-class risk stratification</strong> (Healthy, PRE-BRCA, BRCA) using DNA methylation signatures, 
+                providing a <strong>clinically actionable framework</strong> for early breast cancer detection and prevention
               </p>
             </div>
           </div>
