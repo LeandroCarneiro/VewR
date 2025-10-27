@@ -438,18 +438,31 @@ function App() {
                   <div className="text-xs opacity-75">5 datasets</div>
                 </div>
                 <div className="text-lg text-blue-600">→</div>
-                <div className="bg-blue-100 rounded-lg p-3 shadow-lg text-center min-w-28 border-2 border-blue-400">
+                <div className="bg-gray-100 rounded-lg p-3 shadow-lg text-center min-w-28 border-2 border-gray-400">
                   <div className="text-lg mb-1">🏷️</div>
                   <div className="text-xs font-bold">2. Preprocess</div>
-                  <div className="text-xs opacity-75">Tag, clean, impute</div>
+                  <div className="text-xs opacity-75">Tag, clean</div>
                 </div>
                 <div className="text-lg text-blue-600">→</div>
                 <div className="bg-purple-100 rounded-lg p-3 shadow-lg text-center min-w-28 border-2 border-purple-400">
                   <div className="text-lg mb-1">⚔️</div>
                   <div className="text-xs font-bold">3. Split Data</div>
-                  <div className="text-xs opacity-75">Train: 70% HEALTHY-UNK + 70% BRCA</div>
-                  <div className="text-xs opacity-75">Validation: 30% HEALTHY-UNK + 20% BRCA </div>
-                  <div className="text-xs opacity-75">Test: 100% HEALTHY-MT + 100% HEALTHY-WT + 10% BRCA</div>
+                  <div className="text-xs opacity-75">Train: 70%</div>
+                  <div className="text-xs opacity-75">Validation: 15% </div>
+                  <div className="text-xs opacity-75">Test: 15%</div>
+                </div>
+                <div className="text-lg text-blue-600">→</div>
+                <div className="bg-black-100 rounded-lg p-3 shadow-lg text-center min-w-28 border-2 border-black-400">
+                  <div className="text-lg mb-1">🧮</div>
+                  <div className="text-xs font-bold">4. Impute missing values</div>
+                  <div className="text-xs opacity-75">Mean value from train set</div>
+                </div>
+                <div className="text-lg text-blue-600">→</div>
+                <div className="bg-green-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-green-300">
+                  <div className="text-base mb-1">⚖️</div>
+                  <div className="text-xs font-bold">5. Balance</div>
+                  <div className="text-xs opacity-75">SMOTE</div>
+                  <div className="text-xs opacity-75">Min 80 samples</div>
                 </div>
               </div>
 
@@ -461,33 +474,25 @@ function App() {
               <div className="flex justify-center items-center space-x-2 mb-3 overflow-x-auto">
                 <div className="bg-green-100 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-green-400">
                   <div className="text-base mb-1">📊</div>
-                  <div className="text-xs font-bold">Baseline</div>
-                  <div className="text-xs opacity-75">- All 27,578 features -</div>
-                </div>
-                <div className="text-sm text-green-600">→</div>
-                <div className="bg-green-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-green-300">
-                  <div className="text-base mb-1">⚖️</div>
-                  <div className="text-xs font-bold">Balance</div>
-                  <div className="text-xs opacity-75">SMOTE</div>
+                  <div className="text-xs font-bold">6. Baseline</div>
+                  <div className="text-xs opacity-75">- All 27,577 features -</div>
                 </div>
                 <div className="text-sm text-green-600">→</div>
                 <div className="bg-green-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-green-300">
                   <div className="text-base mb-1">🤖</div>
-                  <div className="text-xs font-bold">Train</div>
-                  <div className="text-xs opacity-75">ML - 2 classes</div>
-                  <div className="text-xs opacity-75">ML - 3 classes</div>
+                  <div className="text-xs font-bold">6.1. Train</div>
+                  <div className="text-xs opacity-75">ML - 4 classes</div>
                 </div>
                 <div className="text-sm text-green-600">→</div>
                 <div className="bg-green-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-green-300">
                   <div className="text-base mb-1">📈</div>
-                  <div className="text-xs font-bold">Validate & Test</div>
-                  <div className="text-xs opacity-75">ML - 2 classes</div>
-                  <div className="text-xs opacity-75">ML - 3 classes</div>
+                  <div className="text-xs font-bold">6.2. Validate & Test</div>
+                  <div className="text-xs opacity-75">ML - 4 classes</div>
                 </div>
                 <div className="text-sm text-green-600">→</div>
                 <div className="bg-green-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-green-300">
                   <div className="text-base mb-1">📊</div>
-                  <div className="text-xs font-bold">Metrics</div>
+                  <div className="text-xs font-bold">6.3. Metrics</div>
                   <div className="text-xs opacity-75">Kappa | Accuracy | ROC-AUC | F1-Score | Sensitivity | Specificity | Precision</div>
                 </div>
               </div>
@@ -495,33 +500,25 @@ function App() {
               <div className="flex justify-center items-center space-x-2 mb-2 overflow-x-auto">
                 <div className="bg-red-100 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-red-400">
                   <div className="text-base mb-1">🐝</div>
-                  <div className="text-xs font-bold">PSO</div>
-                  <div className="text-xs opacity-75">779 features selected</div>
-                </div>
-                <div className="text-sm text-red-600">→</div>
-                <div className="bg-red-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-red-300">
-                  <div className="text-base mb-1">⚖️</div>
-                  <div className="text-xs font-bold">Balance</div>
-                  <div className="text-xs opacity-75">SMOTE</div>
+                  <div className="text-xs font-bold">7. PSO</div>
+                  <div className="text-xs opacity-75">6178 features selected</div>
                 </div>
                 <div className="text-sm text-red-600">→</div>
                 <div className="bg-red-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-red-300">
                   <div className="text-base mb-1">🤖</div>
-                  <div className="text-xs font-bold">Train</div>
-                  <div className="text-xs opacity-75">ML - 2 classes</div>
-                  <div className="text-xs opacity-75">ML - 3 classes</div>
+                  <div className="text-xs font-bold">7.1. Train</div>
+                  <div className="text-xs opacity-75">ML - 4 classes</div>
                 </div>
                 <div className="text-sm text-red-600">→</div>
                 <div className="bg-red-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-red-300">
                   <div className="text-base mb-1">📈</div>
-                  <div className="text-xs font-bold">Validate & Test</div>
-                  <div className="text-xs opacity-75">ML - 2 classes</div>
-                  <div className="text-xs opacity-75">ML - 3 classes</div>
+                  <div className="text-xs font-bold">7.2. Validate & Test</div>
+                  <div className="text-xs opacity-75">ML - 4 classes</div>
                 </div>
                 <div className="text-sm text-red-600">→</div>
                 <div className="bg-red-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-red-300">
                   <div className="text-base mb-1">📊</div>
-                  <div className="text-xs font-bold">Metrics</div>
+                  <div className="text-xs font-bold">7.3. Metrics</div>
                   <div className="text-xs opacity-75">Kappa | Accuracy | ROC-AUC | F1-Score | Sensitivity | Specificity | Precision</div>
                 </div>
               </div>
@@ -530,33 +527,25 @@ function App() {
               <div className="flex justify-center items-center space-x-2 mb-2 overflow-x-auto">
                 <div className="bg-indigo-100 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-indigo-400">
                   <div className="text-base mb-1">🧬</div>
-                  <div className="text-xs font-bold">GA</div>
-                  <div className="text-xs opacity-75">913 features selected</div>
-                </div>
-                <div className="text-sm text-indigo-600">→</div>
-                <div className="bg-indigo-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-indigo-300">
-                  <div className="text-base mb-1">⚖️</div>
-                  <div className="text-xs font-bold">Balance</div>
-                  <div className="text-xs opacity-75">SMOTE</div>
+                  <div className="text-xs font-bold">8. GA</div>
+                  <div className="text-xs opacity-75">5577 features selected</div>
                 </div>
                 <div className="text-sm text-indigo-600">→</div>
                 <div className="bg-indigo-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-indigo-300">
                   <div className="text-base mb-1">🤖</div>
-                  <div className="text-xs font-bold">Train</div>
-                  <div className="text-xs opacity-75">ML - 2 classes</div>
-                  <div className="text-xs opacity-75">ML - 3 classes</div>
+                  <div className="text-xs font-bold">8.1. Train</div>
+                  <div className="text-xs opacity-75">ML - 4 classes</div>
                 </div>
                 <div className="text-sm text-indigo-600">→</div>
                 <div className="bg-indigo-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-indigo-300">
                   <div className="text-base mb-1">📈</div>
-                  <div className="text-xs font-bold">Validate & Test</div>
-                  <div className="text-xs opacity-75">ML - 2 classes</div>
-                  <div className="text-xs opacity-75">ML - 3 classes</div>
+                  <div className="text-xs font-bold">8.2. Validate & Test</div>
+                  <div className="text-xs opacity-75">ML - 4 classes</div>
                 </div>
                 <div className="text-sm text-indigo-600">→</div>
                 <div className="bg-indigo-50 rounded-lg p-2 shadow-md text-center min-w-24 border-2 border-indigo-300">
                   <div className="text-base mb-1">📊</div>
-                  <div className="text-xs font-bold">Metrics</div>
+                  <div className="text-xs font-bold">8.3. Metrics</div>
                   <div className="text-xs opacity-75">Kappa | Accuracy | ROC-AUC | F1-Score | Sensitivity | Specificity | Precision</div>
                 </div>
               </div>
@@ -570,15 +559,14 @@ function App() {
               <div className="flex justify-center items-center space-x-2 overflow-x-auto">
                 <div className="bg-orange-100 rounded-lg p-3 shadow-lg text-center min-w-32 border-2 border-orange-400">
                   <div className="text-lg mb-1">🔍</div>
-                  <div className="text-xs font-bold">Compare Results</div>
+                  <div className="text-xs font-bold">9. Compare Results</div>
                   <div className="text-xs opacity-75">Random Forest | Gradiente Boosting | Ada Boosting | XGBoost | Light GBM</div>
                 </div>
                 <div className="text-lg" style={{ color: 'var(--breast-cancer-accent)' }}>→</div>
                 <div className="bg-pink-100 rounded-lg p-3 shadow-lg text-center min-w-32 border-2 border-pink-400">
                   <div className="text-lg mb-1">🎯</div>
-                  <div className="text-xs font-bold">Best Model</div>
-                  <div className="text-xs opacity-75"><strong>ML - 2 classes</strong>: BRCA Probability(%)</div>
-                  <div className="text-xs opacity-75"><strong>ML - 3 classes</strong>: Classification</div>
+                  <div className="text-xs font-bold">10. Best Model</div>
+                  <div className="text-xs opacity-75"><strong>Predict:</strong> BRCA(%)</div>
                 </div>
               </div>
             </div>
