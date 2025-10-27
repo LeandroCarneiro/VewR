@@ -24,13 +24,14 @@ const SlideContext = createContext<SlideContextValue | undefined>(undefined);
 
 const defaultSlides: SlideData[] = [
   { id: 'home', title: 'Home' },
+  { id: 'motivation', title: 'Motivation' },
+  { id: 'proposal', title: 'Research Proposal' },
   { id: 'introduction', title: 'Introduction' },
   { id: 'related-work', title: 'Related Work' },
+  { id: 'pipeline-process', title: 'Proposal' },
   { id: 'methodology', title: 'Methodology' },
-  { id: 'pipeline-process', title: 'Pipeline Process' },
   { id: 'metaheuristics', title: 'Metaheuristics' },
   { id: 'tree-methods', title: 'Tree Methods' },
-  { id: 'classification-strategy', title: 'Classification Strategy' },
   { id: 'results-models', title: 'Results - Models' },
   { id: 'results-optimizers', title: 'Results - Optimizers' },
   { id: 'conclusion', title: 'Conclusion' },
