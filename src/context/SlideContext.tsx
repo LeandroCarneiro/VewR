@@ -32,8 +32,11 @@ const defaultSlides: SlideData[] = [
   { id: 'methodology', title: 'Methodology' },
   { id: 'metaheuristics', title: 'Metaheuristics' },
   { id: 'tree-methods', title: 'Tree Methods' },
-  { id: 'results-models', title: 'Results - Models' },
-  { id: 'results-optimizers', title: 'Results - Optimizers' },
+  { id: 'results-pso', title: 'Results - PSO' },
+  { id: 'results-ga', title: 'Results - GA' },
+  { id: 'results-all-features', title: 'Results - All Features' },
+  { id: 'results-comparison', title: 'Results - Comparison' },
+  { id: 'results-detailed', title: 'Results - Detailed' },
   { id: 'conclusion', title: 'Conclusion' },
   { id: 'acknowledgments', title: 'Acknowledgments' }
 ];

@@ -1,16 +1,23 @@
 import { Navigation } from './components/Navigation'
 import { Section } from './components/Section'
 import { SlideControls } from './components/SlideControls'
-import { ModelPerformanceCharts } from './components/charts/ModelPerformanceCharts'
-import { OptimizerPerformanceCharts } from './components/charts/OptimizerPerformanceCharts'
-import { MethodologyPipeline } from './components/MethodologyPipeline'
-import { ThreeClassResults } from './components/ThreeClassResults'
+import { LanguageSwitcher } from './components/LanguageSwitcher'
+import { useLanguage } from './context/LanguageContext'
 import { BreastCancerMotivation } from './components/BreastCancerMotivation'
 import { ResearchProposal } from './components/ResearchProposal'
+import { PSOResults } from './components/results/PSOResults'
+import { GAResults } from './components/results/GAResults'
+import { AllFeaturesResults } from './components/results/AllFeaturesResults'
+import { ComparisonResults } from './components/results/ComparisonResults'
+import { DetailedAnalysis } from './components/results/DetailedAnalysis'
 
 function App() {
+  const { t } = useLanguage();
+  
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--breast-cancer-bg)' }}>
+      {/* Language Switcher */}
+      <LanguageSwitcher />
       {/* Navigation header - hidden to give more space */}
       <div style={{ display: 'none' }}>
         <Navigation />
@@ -27,11 +34,11 @@ function App() {
               </div>
             </div>
             <h1 className="mx-auto max-w-4xl text-balance text-4xl font-bold leading-tight" style={{ color: 'var(--breast-cancer-text)' }}>
-              MAMO.IA: Breast Cancer Risk States from DNA Methylation Data Using Bio-inspired Feature Selection and Interpretable Machine Learning
+              {t('project.title')}
             </h1>
             <div className="mt-8 text-xl" style={{ color: 'var(--breast-cancer-text)' }}>
-              <p className="font-medium"><strong>Orientador:</strong> Wellington Pinheiro</p>
-              <p className="font-small"><strong>Dicente:</strong> Leandro Carneiro</p>
+              <p className="font-medium"><strong>{t('advisor')}:</strong> Wellington Pinheiro</p>
+              <p className="font-small"><strong>{t('student')}:</strong> Leandro Carneiro</p>
               <img src="src/assets/logo-upe.png" alt="UPE Logo" className="mt-8 h-20 mx-auto" />
               <p className="text-sm opacity-70 mt-4">{new Date().getFullYear()}</p>
             </div>
@@ -39,17 +46,17 @@ function App() {
         </Section>
 
         {/* Motivation - Global and Brazil breast cancer statistics */}
-        <Section sectionId="motivation" sectionTitle="Motivation" backgroundTheme="breast-cancer-bg-3">
+        <Section sectionId="motivation" sectionTitle={t('motivation.title')} backgroundTheme="breast-cancer-bg-3">
           <BreastCancerMotivation />
         </Section>
 
         {/* Research Proposal - Detailed solution and objectives */}
-        <Section sectionId="proposal" sectionTitle="Proposal & Objectives" backgroundTheme="breast-cancer-bg-2">
+        <Section sectionId="proposal" sectionTitle={t('proposal.title')} backgroundTheme="breast-cancer-bg-2">
           <ResearchProposal />
         </Section>
 
         {/* Introduction - Background and problem statement */}
-        <Section sectionId="introduction" sectionTitle="Introduction" backgroundTheme="breast-cancer-bg-2">
+        <Section sectionId="introduction" sectionTitle={t('introduction')} backgroundTheme="breast-cancer-bg-2">
           <div className="max-w-7xl mx-auto">
             {/* Genome Data & Gene Expression */}
             <div className="grid gap-6 md:grid-cols-2 mb-8">
@@ -134,7 +141,7 @@ function App() {
         </Section>
 
         {/* Related Work - Previous research and comparisons */}
-        <Section sectionId="related-work" sectionTitle="Related Work" backgroundTheme="breast-cancer-bg-3">
+        <Section sectionId="related-work" sectionTitle={t('related-work')} backgroundTheme="breast-cancer-bg-3">
           <div className="max-w-6xl mx-auto">
             <div className="grid gap-8 md:grid-cols-2">
               <div className="space-y-6">
@@ -300,18 +307,18 @@ function App() {
             {/* Technical Rationale */}
             <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg p-6 border border-indigo-200">
               <h3 className="text-xl font-bold text-center mb-4" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Technical Rationale: 27,578 CpG Sites Challenge
+                Technical Rationale: 27,577 CpG Sites Challenge
               </h3>
               <div className="grid md:grid-cols-3 gap-4 text-center">
                 <div className="p-4">
                   <div className="text-3xl mb-2">📊</div>
                   <h4 className="font-semibold mb-2">High Dimensionality</h4>
-                  <p className="text-sm">27,578 features vs. 790 samples creates the <strong>curse of dimensionality</strong></p>
+                  <p className="text-sm">27,577 features vs. 790 samples creates the <strong>curse of dimensionality</strong></p>
                 </div>
                 <div className="p-4">
                   <div className="text-3xl mb-2">🔄</div>
                   <h4 className="font-semibold mb-2">Combinatorial Explosion</h4>
-                  <p className="text-sm">2^27,578 possible feature combinations require <strong>intelligent search strategies</strong></p>
+                  <p className="text-sm">2<sup>27,577</sup> possible feature combinations require <strong>intelligent search strategies</strong></p>
                 </div>
                 <div className="p-4">
                   <div className="text-3xl mb-2">⚖️</div>
@@ -701,43 +708,33 @@ function App() {
         </Section>
 
 
-        {/* Results Part 1 - ML Models Performance by Dataset */}
-        <Section sectionId="results-models" sectionTitle="Results - ML Models Performance" backgroundTheme="breast-cancer-bg-4">
-          <div className="max-w-7xl mx-auto h-full flex flex-col">
-            <div className="text-center mb-2 flex-shrink-0">
-              <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--breast-cancer-accent)' }}>
-                ML Models Performance by Dataset
-              </h3>
-              <p className="text-base opacity-80 max-w-4xl mx-auto">
-                Each chart shows model performance with GA, PSO, and no optimization.
-              </p>
-            </div>
-            <div className="flex-1 min-h-0">
-              <ModelPerformanceCharts />
-            </div>
-          </div>
+        {/* Results Part 1 - PSO Results */}
+        <Section sectionId="results-pso" sectionTitle={t('results.pso.title')} backgroundTheme="breast-cancer-bg-4">
+          <PSOResults />
         </Section>
 
-        {/* Results Part 2 - Optimizers Performance Analysis */}
-        <Section sectionId="results-optimizers" sectionTitle="Results - Optimizers Performance" backgroundTheme="breast-cancer-bg-5">
-          <div className="max-w-7xl mx-auto h-full flex flex-col">
-            <div className="text-center mb-4 flex-shrink-0">
-              <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--breast-cancer-accent)' }}>
-                Optimization Strategies Comparison
-              </h3>
-              <p className="text-base opacity-80 max-w-4xl mx-auto">
-                Performance comparison between Genetic Algorithm (GA), Particle Swarm Optimization (PSO), and no optimization (ALL features).
-                Best performing model for each strategy is highlighted.
-              </p>
-            </div>
-            <div className="flex-1 min-h-0">
-              <OptimizerPerformanceCharts />
-            </div>
-          </div>
+        {/* Results Part 2 - GA Results */}
+        <Section sectionId="results-ga" sectionTitle={t('results.ga.title')} backgroundTheme="breast-cancer-bg-5">
+          <GAResults />
+        </Section>
+
+        {/* Results Part 3 - All Features Results */}
+        <Section sectionId="results-all-features" sectionTitle={t('results.all.title')} backgroundTheme="breast-cancer-bg-4">
+          <AllFeaturesResults />
+        </Section>
+
+        {/* Results Part 4 - Comparison Analysis */}
+        <Section sectionId="results-comparison" sectionTitle={t('results.comparison.title')} backgroundTheme="breast-cancer-bg-5">
+          <ComparisonResults />
+        </Section>
+
+        {/* Results Part 5 - Detailed Analysis */}
+        <Section sectionId="results-detailed" sectionTitle={t('results.detailed.title')} backgroundTheme="breast-cancer-bg-4">
+          <DetailedAnalysis />
         </Section>
 
         {/* Conclusion - Findings and future work */}
-        <Section sectionId="conclusion" sectionTitle="Conclusion" backgroundTheme="breast-cancer-bg-5">
+        <Section sectionId="conclusion" sectionTitle={t('conclusion.title')} backgroundTheme="breast-cancer-bg-5">
           <div className="max-w-7xl mx-auto h-full flex flex-col justify-center">
             {/* Main conclusions - Key Findings */}
             <div className="bg-white rounded-lg p-6 shadow-lg mb-6">
@@ -880,12 +877,12 @@ function App() {
             </div>
 
             <h1 className="text-5xl font-bold mb-4" style={{ color: 'var(--breast-cancer-text)' }}>
-              Thank You
+              {t('thankyou')}
             </h1>
 
             <div className="space-y-4 text-lg" style={{ color: 'var(--breast-cancer-text)' }}>
               <p className="font-medium text-2xl">
-                Questions and Discussion
+                {t('questions')}
               </p>
 
               <div className="mt-6 space-y-3">

@@ -198,7 +198,85 @@ body {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  overflow-x: hidden;
+}
+
+/* Print styles for PDF generation */
+@media print {
+  @page {
+    size: landscape;
+    margin: 0;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #root {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  section {
+    page-break-after: always;
+    page-break-inside: avoid;
+    break-after: page;
+    break-inside: avoid;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    width: 100vw !important;
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    position: relative !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  section:last-child {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  
+  /* Hide UI controls */
+  .print\:hidden,
+  button,
+  .fixed {
+    display: none !important;
+  }
+  
+  /* Ensure all sections are visible */
+  .section-content {
+    overflow: visible !important;
+    height: auto !important;
+  }
+  
+  /* Container adjustments */
+  .container {
+    max-width: 100% !important;
+    padding: 2rem !important;
+  }
+  
+  /* Make sure charts render properly */
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Ensure backgrounds print */
+  div[style*="background"],
+  section[style*="background"] {
+    background: inherit !important;
+  }
 }
 
 /* Navigation improvements */

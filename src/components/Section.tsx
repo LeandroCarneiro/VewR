@@ -15,6 +15,7 @@ export const Section: React.FC<SectionProps> = ({ sectionId, sectionTitle, anima
   const ref = useRef<HTMLElement>(null);
 
   const isCurrent = slides[currentSlideIndex]?.id === sectionId;
+  const [isPrinting, setIsPrinting] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -29,8 +30,22 @@ export const Section: React.FC<SectionProps> = ({ sectionId, sectionTitle, anima
     return () => observer.disconnect();
   }, []);
 
-  // Only show current slide
-  if (!isCurrent) {
+  // Detect print mode
+  useEffect(() => {
+    const beforePrint = () => setIsPrinting(true);
+    const afterPrint = () => setIsPrinting(false);
+    
+    window.addEventListener('beforeprint', beforePrint);
+    window.addEventListener('afterprint', afterPrint);
+    
+    return () => {
+      window.removeEventListener('beforeprint', beforePrint);
+      window.removeEventListener('afterprint', afterPrint);
+    };
+  }, []);
+
+  // Show all slides when printing, otherwise only current slide
+  if (!isCurrent && !isPrinting) {
     return null;
   }
 

@@ -113,7 +113,7 @@ export const MethodologyPipeline: React.FC = () => {
           <div className="bg-white p-2.5 rounded-lg border-l-4 border-red-500 shadow-sm">
             <div className="font-bold mb-1 text-red-700">4.1 Execute PSO</div>
             <div className="text-gray-600">Swarm intelligence</div>
-            <div className="mt-1 font-bold text-red-600">779 features</div>
+            <div className="mt-1 font-bold text-red-600">6178 features</div>
           </div>
           <div className="flex items-center justify-center text-red-400 text-lg">→</div>
           <div className="bg-white p-2.5 rounded-lg border-l-4 border-red-500 shadow-sm">
@@ -146,7 +146,7 @@ export const MethodologyPipeline: React.FC = () => {
           <div className="bg-white p-2.5 rounded-lg border-l-4 border-indigo-500 shadow-sm">
             <div className="font-bold mb-1 text-indigo-700">5.1 Execute GA</div>
             <div className="text-gray-600">Evolutionary search</div>
-            <div className="mt-1 font-bold text-indigo-600">913 features</div>
+            <div className="mt-1 font-bold text-indigo-600">5577 features</div>
           </div>
           <div className="flex items-center justify-center text-indigo-400 text-lg">→</div>
           <div className="bg-white p-2.5 rounded-lg border-l-4 border-indigo-500 shadow-sm">
@@ -178,7 +178,7 @@ export const MethodologyPipeline: React.FC = () => {
         <div className="grid md:grid-cols-6 gap-2 text-xs mb-3">
           <div className="bg-white p-2.5 rounded-lg border-l-4 border-green-500 shadow-sm">
             <div className="font-bold mb-1 text-green-700">6.1 All Features</div>
-            <div className="text-gray-600">27,578 CpG sites</div>
+            <div className="text-gray-600">27,577 CpG sites</div>
           </div>
           <div className="flex items-center justify-center text-green-400 text-lg">→</div>
           <div className="bg-white p-2.5 rounded-lg border-l-4 border-green-500 shadow-sm">
@@ -297,7 +297,7 @@ export const MethodologyPipeline: React.FC = () => {
             <div className="text-xs text-gray-600 font-semibold">Total Samples</div>
           </div>
           <div className="bg-white p-3 rounded-lg shadow-sm">
-            <div className="text-2xl font-bold text-purple-700">27,578</div>
+            <div className="text-2xl font-bold text-purple-700">27,577</div>
             <div className="text-xs text-gray-600 font-semibold">CpG Features</div>
           </div>
           <div className="bg-white p-3 rounded-lg shadow-sm">
